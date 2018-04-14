@@ -1,0 +1,13 @@
+Scrivere codice che restituisce:
+- una approssimazione del diametro
+- una approssimazione del numero di triangoli
+- una approssimazione del numero di componenti fortemente connesse
+per le seguenti reti:
+- http://snap.stanford.edu/data/p2p-Gnutella25.txt.gz
+- http://konect.uni-koblenz.de/downloads/tsv/ego-gplus.tar.bz2
+
+Date le dimensioni delle reti, il codice dovrà essere ottimizzato e parallelizzato.
+Il risultato (e il codice) dovranno essere inviati tramite email a dferraioli@unisa.it entro il 18/04/2018.
+
+Chi avesse bisogno di un server dedicato per eseguire ilcodice su un server dedicato, può inviare una mail a dferraioli@unisa.it,
+indicando nella richiesta Nome Cognome e Matricola.
