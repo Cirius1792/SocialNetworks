@@ -136,34 +136,36 @@ def light_triangle(edges, G, heavy_hitters):
 
 def par_triangles(G, j):
     m = nx.number_of_edges(G)
-    rad_m = math.sqrt(m)
-
+    rad_m = math.sqrt(m)*0.75
     # The set of heavy hitters
+    start = time.time()
     heavy_hitters = set()
     for u in G.nodes():
         if G.degree(u) >= rad_m:
             heavy_hitters.add(u)
+    print "num ht: \t"+str(len(heavy_hitters))
     ht = [[] for k in range(0,j)]
     i = 0
     for triple in it.combinations(heavy_hitters, 3):
         ht[i%j].append(triple)
         i += 1
+    subgraph_1 = G.subgraph(heavy_hitters)
     edges = [[] for k in range(0, j)]
-    subgraph_2 = [set() for k in range(0,j)]
+    stop = time.time() - start
+    #print"prep: \t"+str(stop)
+    subgraph_2 = nx.Graph()
     i = 0
     for edge in G.edges():
         edges[i % j].append(edge)
-        # subgraph_2[i % j].add(edge[0])
-        # subgraph_2[i % j].add(edge[1])
+        subgraph_2.add_edge(edge[0],edge[1])
         i += 1
-    # for i in range(0,j):
-    #     subgraph_2[i] = G.subgraph(subgraph_2[i])
 
     with Parallel(n_jobs=j) as parallel:
         # Number of triangles among heavy hitters.
-        heavy_res = parallel(delayed(heavy_triangle)(triples, G.copy(as_view=True)) for triples in ht)
+        heavy_res = parallel(delayed(heavy_triangle)(triples, subgraph_1) for triples in ht)
         # Number of remaining triangles.
-        light_res = parallel(delayed(light_triangle)(edges[i], G.copy(as_view=True), heavy_hitters.copy()) for i in range(0,j))
+        light_res = parallel(delayed(light_triangle)(edges[i], subgraph_2, heavy_hitters) for i in range(0,j))
+        # G.copy(as_view=True)
     num_triangles = sum(heavy_res) + sum(light_res)
 
     return num_triangles
