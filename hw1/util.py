@@ -143,28 +143,28 @@ def par_triangles(G, j):
     for u in G.nodes():
         if G.degree(u) >= rad_m:
             heavy_hitters.add(u)
+    ht = [[] for k in range(0,j)]
+    i = 0
+    for triple in it.combinations(heavy_hitters, 3):
+        ht[i%j].append(triple)
+        i += 1
+    edges = [[] for k in range(0, j)]
+    subgraph_2 = [set() for k in range(0,j)]
+    i = 0
+    for edge in G.edges():
+        edges[i % j].append(edge)
+        # subgraph_2[i % j].add(edge[0])
+        # subgraph_2[i % j].add(edge[1])
+        i += 1
+    # for i in range(0,j):
+    #     subgraph_2[i] = G.subgraph(subgraph_2[i])
 
     with Parallel(n_jobs=j) as parallel:
-        start = time.time()
-        ht = [[] for k in range(0,j)]
-        i = 0
-        for triple in it.combinations(heavy_hitters, 3):
-            ht[i%j].append(triple)
-            i += 1
-        edges = [[] for k in range(0, j)]
-        i = 0
-        for edge in G.edges():
-            edges[i % j].append(edge)
-            i += 1
-        stop = time.time()-start
-        print "preparazione: " + str(stop)
-
         # Number of triangles among heavy hitters.
         heavy_res = parallel(delayed(heavy_triangle)(triples, G.copy(as_view=True)) for triples in ht)
         # Number of remaining triangles.
-        light_res = parallel(delayed(light_triangle)(es, G.copy(as_view=True), heavy_hitters.copy()) for es in edges)
-
-        num_triangles = sum(heavy_res) + sum(light_res)
+        light_res = parallel(delayed(light_triangle)(edges[i], G.copy(as_view=True), heavy_hitters.copy()) for i in range(0,j))
+    num_triangles = sum(heavy_res) + sum(light_res)
 
     return num_triangles
 
