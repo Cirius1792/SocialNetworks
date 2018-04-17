@@ -11,4 +11,4 @@ Il risultato (e il codice) dovranno essere inviati tramite email a dferraioli@un
 
 Chi avesse bisogno di un server dedicato per eseguire ilcodice su un server dedicato, può inviare una mail a dferraioli@unisa.it,
 indicando nella richiesta Nome Cognome e Matricola.
-CLT
+

@@ -11,7 +11,8 @@ import matplotlib.pyplot as plt
 def test_triangle(graph, j):
     u_graph = nx.Graph(graph)
     start = time.time()
-    triang_par = par_triangles(u_graph, j)
+    #triang_par = par_triangles(u_graph, j)
+    triang_par = par2_trn(u_graph, j)
     t_par = time.time() - start
     start = time.time()
     triang_ex = num_triangles(u_graph)
@@ -20,8 +21,10 @@ def test_triangle(graph, j):
     print "parallelo: \t\t" + str(triang_par) + "\t time: " + str(t_par)
     print "normale: \t\t" + str(triang_ex) + "\t time: " + str(t_n)
 
+def test_diam(graph, j):
+    pass
 
-def hw_mk2(j=4):
+def hw_mk2(j=2):
     g_test = ["./ego-gplus/out.ego-gplus", "./p2p-Gnutella25/p2p-Gnutella25.txt",
                 "../data_fb/1684.edges", "../data_fb/107.edges", "../data_fb/348.edges"]
     i = 0
@@ -32,28 +35,29 @@ def hw_mk2(j=4):
         print "Graph loaded: \t"+g
         print "\tnodes: \t" + str(graph.number_of_nodes())
         print "\tedges: \t" + str(graph.number_of_edges())
-        
+
+        #scc = strongly2(graph)
         test_triangle(graph, j)
-        # start = time.time()
-        # (cluster0,cluster1) = par_spectral(graph if not directed else nx.Graph(graph))
-        # stop = time.time()-start
-        # print "clusterizzazione: \t"+str(stop)
         print "\n\n"
 
 
-def build_subgraph(lst, G, directed=False):
-    if directed:
-        g = nx.DiGraph()
-    else:
-        g = nx.Graph()
-    for u in lst:
-        for v in G[u]:
-            if v in lst:
-                g.add_edge(u,v)
-    return g
+def test2():
+    g = ["./ego-gplus/out.ego-gplus", "./p2p-Gnutella25/p2p-Gnutella25.txt",
+                "../data_fb/1684.edges", "../data_fb/107.edges", "../data_fb/348.edges"]
+    graph = load_graph(g[1], True)
+    u_graph = nx.Graph(graph)
+    sccs = strongly2(graph)
+    grt = sccs[0]
+    diam = 0
+    start = time.time()
+    for scc in sccs:
+        n_d = stream_diam(graph.subgraph(scc))
+        if n_d > diam:
+            diam = n_d
+    print "diam:\t"+str(diam)
+    stop = time.time() - start
+    print "diam tot "+stream_diam(graph)
 
-def subgraph_triangles(lst, G):
-    pass
 
 def test():
     g1 = "./ego-gplus/out.ego-gplus"
@@ -80,3 +84,4 @@ def test():
 if __name__ == '__main__':
     #test()
     hw_mk2(4)
+    #test2()

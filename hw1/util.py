@@ -5,6 +5,8 @@ import itertools as it
 from joblib import Parallel, delayed
 import time
 from scipy.sparse import linalg
+import thread
+from copy import deepcopy
 
 def load_graph(filename, directed=False):
     if directed:
@@ -43,8 +45,9 @@ def stream_diam(G):
         step += 1
         done = True
         for edge in G.edges():
-            # At the i-th iteration, we want that R contains for each vertex v an approximation of the number of nodes that can be reached from v in i+1 steps
-            # If there is edge (u,v), then v can reach in i+1 steps at least the number of nodes that u can reach in i steps
+            # At the i-th iteration, we want that R contains for each vertex v an approximation of the number of nodes
+            # that can be reached from v in i+1 steps If there is edge (u,v), then v can reach in i+1 steps at least the
+            # number of nodes that u can reach in i steps
             if R[edge[0]] != R[edge[1]]:
                 R[edge[0]] = max(R[edge[0]], R[edge[1]])
                 if type(G) is nx.Graph:
@@ -83,9 +86,13 @@ def less(G, edge):
 
 
 # OPTIMIZATION2: It distinguishes between high-degree nodes (called heavy hitters) and low-degree nodes.
-def num_triangles(G):
+def num_triangles(Gr):
+    if type(Gr) is nx.DiGraph:
+        G = nx.Graph(Gr)
+    else:
+        G = Gr
     m = nx.number_of_edges(G)
-    rad_m = math.sqrt(m)
+    rad_m = math.sqrt(m)/2
     num_triangles = 0
 
     # The set of heavy hitters, that is nodes with degree at least sqrt(m)
@@ -101,13 +108,13 @@ def num_triangles(G):
             num_triangles += 1
 
     # Number of remaining triangles.
-    for edge in G.edges():  # They are m
+    for edge in G.edges():                  # They are m
         sel = less(G, edge)
-        if edge[
-            sel] not in heavy_hitters:  # If the minimum among the endpoint is an heavy hitter, then also the other endpoint is an heavy hitter
-            for i in G[edge[sel]]:  # They are less than sqrt(m)
+        if edge[sel] not in heavy_hitters:  # If the minimum among the endpoint is an heavy hitter,
+                                            # then also the other endpoint is an heavy hitter
+            for i in G[edge[sel]]:          # They are less than sqrt(m)
                 if less(G, [i, edge[1 - sel]]) and G.has_edge(i, edge[
-                    1 - sel]):  # In this way we count the triangle only once
+                    1 - sel]):              # In this way we count the triangle only once
                     num_triangles += 1
 
     return num_triangles
@@ -115,12 +122,20 @@ def num_triangles(G):
 
 def heavy_triangle(triples, G):
     num_triangles = 0
+    # print "Triples: "+str(triples)
+    t = time.time()
     for triple in triples:
         if G.has_edge(triple[0], triple[1]) and G.has_edge(triple[0], triple[2]) and G.has_edge(triple[1],
                                                                                                 triple[2]):
             num_triangles += 1
+    #print("Ho sprecato:", time.time()-t)
     return num_triangles
 
+def heavy_2(triples, G, ret, i):
+    ret[i] = heavy_triangle(triples, G)
+
+def light_2(edges, G, heavy_hitters, ret,i):
+    ret[i] = light_triangle(edges, G, heavy_hitters)
 
 def light_triangle(edges, G, heavy_hitters):
     num_triangles = 0
@@ -128,15 +143,70 @@ def light_triangle(edges, G, heavy_hitters):
         sel = less(G, edge)
         if edge[sel] not in heavy_hitters:
             for i in G[edge[sel]]:
-                if less(G, [i, edge[1 - sel]]) and G.has_edge(i, edge[
-                    1 - sel]):
+                if less(G, [i, edge[1 - sel]]) and G.has_edge(i, edge[1 - sel]):
                     num_triangles += 1
     return num_triangles
+
+def par2_trn(G,j):
+    m = nx.number_of_edges(G)
+    rad_m = math.sqrt(m) / 2
+    # The set of heavy hitters
+    start = time.time()
+    heavy_hitters = set()
+    for u in G.nodes():
+        if G.degree(u) >= rad_m:
+            heavy_hitters.add(u)
+    print "num ht: \t" + str(len(heavy_hitters))
+    ht = [[] for k in range(0, j)]
+    i = 0
+    for triple in it.combinations(heavy_hitters, 3):
+        ht[i % j].append(triple)
+        i += 1
+    subgraph_1 = G.subgraph(heavy_hitters)
+    edges = [[] for k in range(0, j)]
+    stop = time.time() - start
+    # print"prep: \t"+str(stop)
+    i = 0
+    for edge in G.edges():
+        edges[i % j].append(edge)
+        i += 1
+
+    #Parallelizzazione
+    ret_h = [None for i in range(0,j)]
+    ret_l = [None for i in range(0,j)]
+    start = time.time()
+    for i in range(0,j):
+        heavy_res = thread.start_new_thread((heavy_2),(ht[i], subgraph_1.copy(), ret_h,i))
+    ready = False
+    while not ready:
+        kk = 0
+        for i in range(0,j):
+            if ret_h[i] is not None:
+                kk +=1
+        ready = kk == j
+    stop = time.time() - start
+    h_trn = sum(ret_h)
+    print "\th_trn: " + str(h_trn) + "\t t: " + str(stop)
+    # Number of remaining triangles.
+    start = time.time()
+    for i in range(0, j):
+        light_res = thread.start_new_thread((light_2),(edges[i][:], G, heavy_hitters.copy(),ret_l,i) )
+    ready = False
+    while not ready:
+        kk = 0
+        for i in range(0, j):
+            if ret_l[i] is not None:
+                kk += 1
+        ready = kk == j
+    stop = time.time() - start
+    l_trn = sum(ret_l)
+    print "\tl_trn: " + str(l_trn) + "\t t: " + str(stop)
+    return l_trn + h_trn
 
 
 def par_triangles(G, j):
     m = nx.number_of_edges(G)
-    rad_m = math.sqrt(m)*0.75
+    rad_m = math.sqrt(m)/2
     # The set of heavy hitters
     start = time.time()
     heavy_hitters = set()
@@ -153,20 +223,26 @@ def par_triangles(G, j):
     edges = [[] for k in range(0, j)]
     stop = time.time() - start
     #print"prep: \t"+str(stop)
-    subgraph_2 = nx.Graph()
     i = 0
     for edge in G.edges():
         edges[i % j].append(edge)
-        subgraph_2.add_edge(edge[0],edge[1])
         i += 1
 
     with Parallel(n_jobs=j) as parallel:
         # Number of triangles among heavy hitters.
-        heavy_res = parallel(delayed(heavy_triangle)(triples, subgraph_1) for triples in ht)
+        start = time.time()
+        heavy_res = parallel(delayed(heavy_triangle)(triples, subgraph_1.copy()) for triples in ht)
+        stop = time.time() - start
+        h_trn = sum(heavy_res)
+        print "\th_trn: "+str(h_trn)+"\t t: "+str(stop)
         # Number of remaining triangles.
-        light_res = parallel(delayed(light_triangle)(edges[i], subgraph_2, heavy_hitters) for i in range(0,j))
+        start = time.time()
+        light_res = parallel(delayed(light_triangle)(edges[i], G.copy(), heavy_hitters.copy()) for i in range(0,j))
+        stop = time.time()-start
+        l_trn = sum(light_res)
+        print "\tl_trn: "+str(l_trn)+"\t t: "+str(stop)
         # G.copy(as_view=True)
-    num_triangles = sum(heavy_res) + sum(light_res)
+    num_triangles = h_trn + l_trn
 
     return num_triangles
 
@@ -191,7 +267,10 @@ def strongly2(G):
                 visited.add(u)
 
             # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
-            igraph = graph.reverse(False)
+            if type(graph) is nx.DiGraph:
+                igraph = graph.reverse(False)
+            else:
+                igraph = graph
             ivisited = set()
             queue = [node]
             while len(queue) > 0:
@@ -257,12 +336,14 @@ def strongly(G):
 def spectral(G):
     n = G.number_of_nodes()
     nodes = sorted(G.nodes())
-    # Laplacian of a graph is a matrix, with diagonal entries being the degree of the corresponding node and off-diagonal entries being -1 if an edge between the corresponding nodes exists and 0 otherwise
-    L = nx.laplacian_matrix(G,
-                            nodes).asfptype()  # asfptype() convertes the laplacian matrix as returned by networkx to a sparse matrix as managed by scipy
+    # Laplacian of a graph is a matrix, with diagonal entries being the degree of the corresponding node and
+    # off-diagonal entries being -1 if an edge between the corresponding nodes exists and 0 otherwise
+    L = nx.laplacian_matrix(G,nodes).asfptype() # asfptype() convertes the laplacian matrix as returned by networkx to
+                                                # a sparse matrix as managed by scipy
     # Compute eigenvalues and eigenvectors of the Laplacian matrix
-    w, v = linalg.eigsh(L,
-                        n - 1)  # the first input is the array of eigenvalues in increasing order. The second output contains eigenvectors: specifically, the eigenvector of the k-th eigenvalue is given by the k-th entry of each of the n vectors contained in v
+    w, v = linalg.eigsh(L,n - 1)  # the first input is the array of eigenvalues in increasing order. The second output
+                                  # contains eigenvectors: specifically, the eigenvector of the k-th eigenvalue is given
+                                  #by the k-th entry of each of the n vectors contained in v
 
     # Partition in clusters based on the corresponding eigenvector value being positive or negative
     cluster0 = set()
@@ -272,25 +353,4 @@ def spectral(G):
             cluster0.add(nodes[i])
         else:
             cluster1.add(nodes[i])
-    print(cluster0, cluster1)
-
-
-def par_spectral(G):
-    n = G.number_of_nodes()
-    nodes = sorted(G.nodes())
-    # Laplacian of a graph is a matrix, with diagonal entries being the degree of the corresponding node and off-diagonal entries being -1 if an edge between the corresponding nodes exists and 0 otherwise
-    L = nx.laplacian_matrix(G,
-                            nodes).asfptype()  # asfptype() convertes the laplacian matrix as returned by networkx to a sparse matrix as managed by scipy
-    # Compute eigenvalues and eigenvectors of the Laplacian matrix
-    w, v = linalg.eigsh(L,
-                        n - 1)  # the first input is the array of eigenvalues in increasing order. The second output contains eigenvectors: specifically, the eigenvector of the k-th eigenvalue is given by the k-th entry of each of the n vectors contained in v
-
-    # Partition in clusters based on the corresponding eigenvector value being positive or negative
-    cluster0 = set()
-    cluster1 = set()
-    for i in range(n):
-        if v[i, 0] < 0:
-            cluster0.add(nodes[i])
-        else:
-            cluster1.add(nodes[i])
-    print(cluster0, cluster1)
+    return(cluster0, cluster1)

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import networkx as nx
-from priorityq import PriorityQueue
+from priorityq import PQ
 import random
 from scipy.sparse import linalg, coo_matrix
 import numpy as np
@@ -11,7 +11,7 @@ import numpy as np
 
 def hierarchical(G):
     # Create a priority queue with each pair of nodes indexed by distance
-    pq = PriorityQueue()
+    pq = PQ()
     for u in G.nodes():
         for v in G.nodes():
             if u != v:
@@ -81,8 +81,8 @@ def betweenness(G):
         parents = {i: [] for i in G.nodes()}  # it saves the nodes the parents of i in all shortest paths from s to i
         spnum = {i: 0 for i in G.nodes()}  # it saves the number of shortest paths from s to i
         distance = {i: -1 for i in G.nodes()}  # it saves the length of the shortest path from s to i.
-        eflow = {frozenset(e): 0 for e in
-                 G.edges()}  # it saves the number of shortest path from u to every other node that use edge e
+        eflow = {frozenset(e): 0 for e in G.edges()}  # it saves the number of shortest path from u to every other node
+                                                      # that use edge e
         vflow = {i: 1 for i in
                  G.nodes()}  # it saves the number of shortest path from u to every other node that use vertex i (this number is at least 1, since there is there is at least the shortest path from s to i)
 
@@ -123,7 +123,7 @@ def betweenness(G):
 def bwt_cluster(G):
     b = betweenness(G)
     graph = G.copy()
-    pq = PriorityQueue()
+    pq = PQ()
     for x in b.keys():
         pq.add(x, -b[x])
 
@@ -162,7 +162,7 @@ def spectral(G):
     print(cluster0, cluster1)
 
 
-# How to achieve more than two clusters? Two options: (i) recursively split in clusters using the same approach on each of the two subgraphs; (ii) use other eigenvectors.Ã¹
+# How to achieve more than two clusters? Two options: (i) recursively split in clusters using the same approach on each of the two subgraphs; (ii) use other eigenvectors
 # EXERCISE: implement both these generalizations.
 
 G = nx.Graph()
@@ -177,5 +177,5 @@ G.add_edge('E', 'F')
 G.add_edge('F', 'G')
 # hierarchical(G)
 # two_means(G)
-# bwt_cluster(G)
-spectral(G)
+bwt_cluster(G)
+#spectral(G)
