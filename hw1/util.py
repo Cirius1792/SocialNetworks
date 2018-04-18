@@ -5,7 +5,7 @@ import itertools as it
 from joblib import Parallel, delayed
 import time
 from scipy.sparse import linalg
-import thread
+
 from copy import deepcopy
 
 def load_graph(filename, directed=False):
@@ -146,74 +146,75 @@ def light_triangle(edges, G, heavy_hitters):
                 if less(G, [i, edge[1 - sel]]) and G.has_edge(i, edge[1 - sel]):
                     num_triangles += 1
     return num_triangles
-
-def par2_trn(G,j):
-    m = nx.number_of_edges(G)
-    rad_m = math.sqrt(m) / 2
-    # The set of heavy hitters
-    start = time.time()
-    heavy_hitters = set()
-    for u in G.nodes():
-        if G.degree(u) >= rad_m:
-            heavy_hitters.add(u)
-    print "num ht: \t" + str(len(heavy_hitters))
-    ht = [[] for k in range(0, j)]
-    i = 0
-    for triple in it.combinations(heavy_hitters, 3):
-        ht[i % j].append(triple)
-        i += 1
-    subgraph_1 = G.subgraph(heavy_hitters)
-    edges = [[] for k in range(0, j)]
-    stop = time.time() - start
-    # print"prep: \t"+str(stop)
-    i = 0
-    for edge in G.edges():
-        edges[i % j].append(edge)
-        i += 1
-
-    #Parallelizzazione
-    ret_h = [None for i in range(0,j)]
-    ret_l = [None for i in range(0,j)]
-    start = time.time()
-    for i in range(0,j):
-        heavy_res = thread.start_new_thread((heavy_2),(ht[i], subgraph_1.copy(), ret_h,i))
-    ready = False
-    while not ready:
-        kk = 0
-        for i in range(0,j):
-            if ret_h[i] is not None:
-                kk +=1
-        ready = kk == j
-    stop = time.time() - start
-    h_trn = sum(ret_h)
-    print "\th_trn: " + str(h_trn) + "\t t: " + str(stop)
-    # Number of remaining triangles.
-    start = time.time()
-    for i in range(0, j):
-        light_res = thread.start_new_thread((light_2),(edges[i][:], G, heavy_hitters.copy(),ret_l,i) )
-    ready = False
-    while not ready:
-        kk = 0
-        for i in range(0, j):
-            if ret_l[i] is not None:
-                kk += 1
-        ready = kk == j
-    stop = time.time() - start
-    l_trn = sum(ret_l)
-    print "\tl_trn: " + str(l_trn) + "\t t: " + str(stop)
-    return l_trn + h_trn
+#
+# def par2_trn(G,j):
+#     m = nx.number_of_edges(G)
+#     rad_m = math.sqrt(m) / 2
+#     # The set of heavy hitters
+#     start = time.time()
+#     heavy_hitters = set()
+#     for u in G.nodes():
+#         if G.degree(u) >= rad_m:
+#             heavy_hitters.add(u)
+#     print ("num ht: \t" + str(len(heavy_hitters)))
+#     ht = [[] for k in range(0, j)]
+#     i = 0
+#     for triple in it.combinations(heavy_hitters, 3):
+#         ht[i % j].append(triple)
+#         i += 1
+#     subgraph_1 = G.subgraph(heavy_hitters)
+#     edges = [[] for k in range(0, j)]
+#     stop = time.time() - start
+#     # print"prep: \t"+str(stop)
+#     i = 0
+#     for edge in G.edges():
+#         edges[i % j].append(edge)
+#         i += 1
+#
+#     #Parallelizzazione
+#     ret_h = [None for i in range(0,j)]
+#     ret_l = [None for i in range(0,j)]
+#     start = time.time()
+#     for i in range(0,j):
+#         heavy_res = thread.start_new_thread((heavy_2),(ht[i], subgraph_1.copy(), ret_h,i))
+#     ready = False
+#     while not ready:
+#         kk = 0
+#         for i in range(0,j):
+#             if ret_h[i] is not None:
+#                 kk +=1
+#         ready = kk == j
+#     stop = time.time() - start
+#     h_trn = sum(ret_h)
+#     print "\th_trn: " + str(h_trn) + "\t t: " + str(stop)
+#     # Number of remaining triangles.
+#     start = time.time()
+#     for i in range(0, j):
+#         light_res = thread.start_new_thread((light_2),(edges[i][:], G, heavy_hitters.copy(),ret_l,i) )
+#     ready = False
+#     while not ready:
+#         kk = 0
+#         for i in range(0, j):
+#             if ret_l[i] is not None:
+#                 kk += 1
+#         ready = kk == j
+#     stop = time.time() - start
+#     l_trn = sum(ret_l)
+#     print "\tl_trn: " + str(l_trn) + "\t t: " + str(stop)
+#     return l_trn + h_trn
 
 
 def par_triangles(G, j):
     m = nx.number_of_edges(G)
     rad_m = math.sqrt(m)/2
+    #rad_m = math.sqrt(m)
     # The set of heavy hitters
     start = time.time()
     heavy_hitters = set()
     for u in G.nodes():
         if G.degree(u) >= rad_m:
             heavy_hitters.add(u)
-    print "num ht: \t"+str(len(heavy_hitters))
+    print ("num ht: \t"+str(len(heavy_hitters)))
     ht = [[] for k in range(0,j)]
     i = 0
     for triple in it.combinations(heavy_hitters, 3):
@@ -234,24 +235,68 @@ def par_triangles(G, j):
         heavy_res = parallel(delayed(heavy_triangle)(triples, subgraph_1.copy()) for triples in ht)
         stop = time.time() - start
         h_trn = sum(heavy_res)
-        print "\th_trn: "+str(h_trn)+"\t t: "+str(stop)
+        print ("\th_trn: "+str(h_trn)+"\t t: "+str(stop))
         # Number of remaining triangles.
         start = time.time()
-        light_res = parallel(delayed(light_triangle)(edges[i], G.copy(), heavy_hitters.copy()) for i in range(0,j))
+        light_res = parallel(delayed(light_triangle)(edges[i], G.copy(as_view=True), heavy_hitters.copy()) for i in range(0,j))
         stop = time.time()-start
         l_trn = sum(light_res)
-        print "\tl_trn: "+str(l_trn)+"\t t: "+str(stop)
-        # G.copy(as_view=True)
+        print ("\tl_trn: "+str(l_trn)+"\t t: "+str(stop))
     num_triangles = h_trn + l_trn
 
     return num_triangles
 
+
+def par_SCC(G, j=4):
+    graph = G.copy()
+    comp = dict()
+
+    done = False
+    if type(graph) is nx.DiGraph:
+        igraph = graph.reverse(False)
+    else:
+        igraph = graph
+    gr = [graph, igraph]
+    node_lists = [[] for i in range(0,j)]
+    i = 0
+    for node in graph:
+        node_lists[i%j].append(node)
+        i +=1
+
+    with Parallel(n_jobs=j) as parallel:
+        while not done:
+            changed = False
+
+    components = []
+    # Each node left in the graph corresponds to a component
+    for u in graph:
+        if u in comp.keys():
+            components.append(comp[u])
+        else:
+            components.append({u})
+
+    return components
+
+def BFS(node, graph):
+    visited = set()
+    queue = [node]
+    while len(queue) > 0:
+        u = queue.pop()
+        for v in graph[u]:
+            if v not in visited:
+                queue.append(v)
+        visited.add(u)
+    return visited
 
 def strongly2(G):
     graph = G.copy()
     comp = dict()
 
     done = False
+    if type(graph) is nx.DiGraph:
+        igraph = graph.reverse(False)
+    else:
+        igraph = graph
     while not done:
         changed = False
         # For each node left in the graph
@@ -267,10 +312,6 @@ def strongly2(G):
                 visited.add(u)
 
             # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
-            if type(graph) is nx.DiGraph:
-                igraph = graph.reverse(False)
-            else:
-                igraph = graph
             ivisited = set()
             queue = [node]
             while len(queue) > 0:
