@@ -5,6 +5,7 @@ import itertools as it
 from joblib import Parallel, delayed
 import time
 from scipy.sparse import linalg
+import random
 
 from copy import deepcopy
 
@@ -277,6 +278,11 @@ def par_SCC(G, j=4):
 
     return components
 
+
+def create_sets(nodes, G):
+    pass
+
+
 def BFS(node, graph):
     visited = set()
     queue = [node]
@@ -287,16 +293,11 @@ def BFS(node, graph):
                 queue.append(v)
         visited.add(u)
     return visited
-
 def strongly2(G):
     graph = G.copy()
     comp = dict()
 
     done = False
-    if type(graph) is nx.DiGraph:
-        igraph = graph.reverse(False)
-    else:
-        igraph = graph
     while not done:
         changed = False
         # For each node left in the graph
@@ -312,6 +313,7 @@ def strongly2(G):
                 visited.add(u)
 
             # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
+            igraph = graph.reverse(False)
             ivisited = set()
             queue = [node]
             while len(queue) > 0:
@@ -374,24 +376,124 @@ def strongly(G):
 
     return components
 
-def spectral(G):
-    n = G.number_of_nodes()
-    nodes = sorted(G.nodes())
-    # Laplacian of a graph is a matrix, with diagonal entries being the degree of the corresponding node and
-    # off-diagonal entries being -1 if an edge between the corresponding nodes exists and 0 otherwise
-    L = nx.laplacian_matrix(G,nodes).asfptype() # asfptype() convertes the laplacian matrix as returned by networkx to
-                                                # a sparse matrix as managed by scipy
-    # Compute eigenvalues and eigenvectors of the Laplacian matrix
-    w, v = linalg.eigsh(L,n - 1)  # the first input is the array of eigenvalues in increasing order. The second output
-                                  # contains eigenvectors: specifically, the eigenvector of the k-th eigenvalue is given
-                                  #by the k-th entry of each of the n vectors contained in v
 
-    # Partition in clusters based on the corresponding eigenvector value being positive or negative
-    cluster0 = set()
-    cluster1 = set()
-    for i in range(n):
-        if v[i, 0] < 0:
-            cluster0.add(nodes[i])
+def SCC_2(G):
+    graph = G.copy()
+    comp = dict()
+
+    done = False
+
+    while not done:
+        changed = False
+        # For each node left in the graph
+        for node in graph.nodes():
+            # Run a BFS to list all nodes reachable from "node"
+            visited = set()
+            queue = [node]
+            while len(queue) > 0:
+                u = queue.pop()
+                for v in graph[u]:
+                    if v not in visited:
+                        queue.append(v)
+                visited.add(u)
+
+            # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
+            if type(graph) is nx.DiGraph:
+                igraph = graph.reverse(False)
+            else:
+                igraph = graph
+            ivisited = set()
+            queue = [node]
+            while len(queue) > 0:
+                u = queue.pop()
+                for v in igraph[u]:
+                    if v not in ivisited:
+                        queue.append(v)
+                ivisited.add(u)
+
+            # The intersection of above sets is the strongly connected component at which "node" belongs
+            if len(visited & ivisited) > 1:
+                comp[node] = visited & ivisited
+                # We modify the graph by substituting the strongly connected component at which "node" belongs with a single vertex labeled "node" that has all edges to and from the component and every other node in the graph
+                for n in comp[node]:
+                    graph.remove_node(n)
+                changed = True
+                break
+
+        # If an iteration, no change is done, then all components have been found
+        if not changed:
+            done = True
+
+    components = []
+    # Each node left in the graph corresponds to a component
+    for u in graph:
+        if u in comp.keys():
+            components.append(comp[u])
         else:
-            cluster1.add(nodes[i])
-    return(cluster0, cluster1)
+            components.append({u})
+
+    return components
+
+
+
+def SCC_p(G, p=1):
+    graph = G.copy()
+    comp = dict()
+
+    done = False
+
+    while not done:
+        changed = False
+        # For each node left in the graph
+        for node in graph.nodes():
+            q = random.random()
+            if q > (1-p):
+                # Run a BFS to list all nodes reachable from "node"
+                visited = set()
+                queue = [node]
+                while len(queue) > 0:
+                    u = queue.pop()
+                    for v in graph[u]:
+                        if v not in visited:
+                            queue.append(v)
+                    visited.add(u)
+
+                # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
+                if type(graph) is nx.DiGraph:
+                    igraph = graph.reverse(False)
+                else:
+                    igraph = graph
+                ivisited = set()
+                queue = [node]
+                while len(queue) > 0:
+                    u = queue.pop()
+                    for v in igraph[u]:
+                        if v not in ivisited:
+                            queue.append(v)
+                    ivisited.add(u)
+
+                # The intersection of above sets is the strongly connected component at which "node" belongs
+                if len(visited & ivisited) > 1:
+                    comp[node] = visited & ivisited
+                    # We modify the graph by substituting the strongly connected component at which "node" belongs with a single vertex labeled "node" that has all edges to and from the component and every other node in the graph
+                    mapping = {k: node for k in comp[node]}
+                    graph = nx.relabel_nodes(graph, mapping, copy=False)
+                    if graph.has_edge(node, node):
+                        graph.remove_edge(node, node)
+                    # If the graph has been changed, we restart with the newly created graph
+                    changed = True
+                    break
+
+            # If an iteration, no change is done, then all components have been found
+            if not changed:
+                done = True
+
+    components = []
+    # Each node left in the graph corresponds to a component
+    for u in graph:
+        if u in comp.keys():
+            components.append(comp[u])
+        else:
+            components.append({u})
+
+    return components
