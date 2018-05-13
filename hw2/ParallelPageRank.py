@@ -66,6 +66,7 @@ def pageRank(G, s=0.85, step=75, confidence=0, flag=False):
 
 def update(G,rank, degree, s,n):
     tmp = {i: (float(1) - s) / n for i in G.nodes()}
+
     for i in G.nodes():
         for j in G[i]:
             tmp[j] += float(s * rank[i] / degree[i])
@@ -92,9 +93,9 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_jobs=4,flag=False):
     with Parallel (n_jobs=n_jobs) as parallel:
         while not done and time < step:
             time += 1
-            #rank_s = [{i: rank[i] for i in subsets[k]} for k in range(math.ceil(math.sqrt(n_jobs)))]
-            #res = parallel(delayed(update)(subgraphs[i], rank_s[mapping[i]], degree[i], s, n) for i in range(n_jobs))
-            res = parallel(delayed(update)(subgraphs[i], rank, degree[i], s, n) for i in range(n_jobs))
+            rank_s = [{i: rank[i] for i in subsets[k]} for k in range(math.ceil(math.sqrt(n_jobs)))]
+            res = parallel(delayed(update)(subgraphs[i], rank_s[mapping[i]], degree[i], s, n) for i in range(n_jobs))
+            #res = parallel(delayed(update)(subgraphs[i], rank, degree[i], s, n) for i in range(n_jobs))
             diff = 0
             for k in range(math.ceil(math.sqrt(n_jobs))):
                 for nodes in subsets[k]:
@@ -103,11 +104,8 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_jobs=4,flag=False):
                         new += res[i][nodes]
                     diff += abs(new - rank[nodes])
                     rank[nodes] = new
-
-
             if diff <= confidence:
                 done = True
-
     if flag:
         return rank
     for u in G.nodes():
@@ -142,30 +140,18 @@ def split_graph(G, n_jobs):
     return subsets, subgraphs, degree, mp
 
 
-def tst(param):
-    for i in param:
-        param[i] = 1
-
 
 if __name__ == '__main__':
     G = nx.DiGraph()
+
     G.add_edge('A', 'B')
     G.add_edge('A', 'C')
     G.add_edge('A', 'D')
-    G.add_edge('B', 'D')
     G.add_edge('B', 'A')
+    G.add_edge('B', 'D')
     G.add_edge('C', 'A')
     G.add_edge('D', 'B')
     G.add_edge('D', 'C')
-    # G.add_edge('A', 'B')
-    # G.add_edge('A', 'C')
-    # G.add_edge('B', 'C')
-    # G.add_edge('B', 'D')
-    # G.add_edge('D', 'E')
-    # G.add_edge('D', 'F')
-    # G.add_edge('D', 'G')
-    # G.add_edge('E', 'F')
-    # G.add_edge('F', 'G')
     graph = "../graphs/Brightkite/Brightkite_edges.txt"
     G=load_graph(graph,True)
     #s, g, degree = split_graph(G, 9)
@@ -179,12 +165,14 @@ if __name__ == '__main__':
     #             print("("+str(n)+","+str(neig)+") ")
     #     print("\n")
     print("\nNormale")
-    pq_s = pageRank(G,flag=True)
-    for i in pq_s:
-        print(str(i)+"\t=\t "+str(pq_s[i]))
+    pq_s = pageRank(G,flag=False)
+    for i in range(3):
+        el, rank = pq_s.pop(with_priority=True)
+        print(str(el)+"\t=\t "+str(rank))
     print("\nParallelo")
-    pq = parallelPageRank(G, flag=True)
-    for i in pq:
-        print(str(i)+"\t=\t "+str(pq[i]))
+    pq = parallelPageRank(G, flag=False)
+    for i in range(3):
+        el, rank = pq.pop(with_priority=True)
+        print(str(el)+"\t=\t "+str(rank))
 
 

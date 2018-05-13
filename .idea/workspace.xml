@@ -5,8 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/RetiSociali.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RetiSociali.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw1/hw.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw1/hw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw1/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw1/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/ParallelPageRank.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/ParallelPageRank.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,17 +15,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RetiSociali$sol_1_properties.coverage" NAME="sol_1_properties Coverage Results" MODIFIED="1522836075325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_1" />
-    <SUITE FILE_PATH="coverage/RetiSociali$test_snap.coverage" NAME="test_snap Coverage Results" MODIFIED="1521463837542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$util.coverage" NAME="util Coverage Results" MODIFIED="1524057078079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
     <SUITE FILE_PATH="coverage/RetiSociali$fb_test.coverage" NAME="fb_test Coverage Results" MODIFIED="1521463155864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RetiSociali$facebook.coverage" NAME="facebook Coverage Results" MODIFIED="1521463505590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Facebook_pkg" />
-    <SUITE FILE_PATH="coverage/RetiSociali$sol_2_communities.coverage" NAME="sol_2_communities Coverage Results" MODIFIED="1523352320961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_2" />
-    <SUITE FILE_PATH="coverage/RetiSociali$util.coverage" NAME="util Coverage Results" MODIFIED="1523357738499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
-    <SUITE FILE_PATH="coverage/RetiSociali$esercitazione_1_soluzione.coverage" NAME="esercitazione_1_soluzione Coverage Results" MODIFIED="1521465134581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RetiSociali$hw.coverage" NAME="hw Coverage Results" MODIFIED="1523620571470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$sol_3_clusterizzazione.coverage" NAME="sol_3_clusterizzazione Coverage Results" MODIFIED="1523956155878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_3" />
+    <SUITE FILE_PATH="coverage/RetiSociali$sol_1_properties.coverage" NAME="sol_1_properties Coverage Results" MODIFIED="1522836075325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_1" />
     <SUITE FILE_PATH="coverage/SocialNetworks$hw.coverage" NAME="hw Coverage Results" MODIFIED="1524062342154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$sol_2_communities.coverage" NAME="sol_2_communities Coverage Results" MODIFIED="1523352320961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_2" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$ParallelPageRank.coverage" NAME="ParallelPageRank Coverage Results" MODIFIED="1526226159948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
+    <SUITE FILE_PATH="coverage/RetiSociali$esercitazione_1_soluzione.coverage" NAME="esercitazione_1_soluzione Coverage Results" MODIFIED="1521465134581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$sol_3_clusterizzazione.coverage" NAME="sol_3_clusterizzazione Coverage Results" MODIFIED="1523956155878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_3" />
+    <SUITE FILE_PATH="coverage/RetiSociali$util.coverage" NAME="util Coverage Results" MODIFIED="1523357738499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$hw.coverage" NAME="hw Coverage Results" MODIFIED="1523620571470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$util.coverage" NAME="util Coverage Results" MODIFIED="1524057078079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$test_snap.coverage" NAME="test_snap Coverage Results" MODIFIED="1521463837542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
@@ -35,37 +35,19 @@
           <file leaf-file-name="HW1.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
+                <state>
                   <caret line="14" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="sol_2_communities.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/esercitazione_2/sol_2_communities.py">
+          <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3720">
-                  <caret line="190" column="26" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="hw.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/hw1/hw.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="40">
-                  <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw1/util.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="384">
-                  <caret line="396" column="30" selection-start-line="396" selection-start-column="30" selection-end-line="396" selection-end-column="30" />
+                <state relative-caret-position="249">
+                  <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
                   <folding>
-                    <element signature="e#1#22#0" expanded="true" />
+                    <element signature="e#1290#1302#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -75,41 +57,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="util.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/hw1/util.py">
+          <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="567">
-                  <caret line="327" column="34" selection-start-line="327" selection-start-column="34" selection-end-line="327" selection-end-column="34" />
+                <state relative-caret-position="289">
+                  <caret line="41" column="35" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="35" />
                   <folding>
-                    <element signature="e#226#709#0" />
-                    <element signature="e#364#626#0" />
-                    <element signature="e#391#626#0" />
-                    <element signature="e#461#626#0" />
-                    <element signature="e#712#775#0" />
-                    <element signature="e#1307#2121#0" />
-                    <element signature="e#1518#2104#0" />
-                    <element signature="e#1591#2104#0" />
-                    <element signature="e#1591#1697#0" />
-                    <element signature="e#1934#2104#0" />
-                    <element signature="e#2155#2843#0" />
-                    <element signature="e#2254#2826#0" />
-                    <element signature="e#2327#2826#0" />
-                    <element signature="e#2327#2473#0" />
-                    <element signature="e#2656#2826#0" />
-                    <element signature="e#2869#3026#0" />
-                    <element signature="e#3161#4427#0" />
-                    <element signature="e#3322#3392#0" />
-                    <element signature="e#3503#3560#0" />
-                    <element signature="e#3670#3811#0" />
-                    <element signature="e#3915#4401#0" />
-                    <element signature="e#4079#4401#0" />
-                    <element signature="e#4218#4401#0" />
-                    <element signature="e#4919#4954#0" />
-                    <element signature="e#5005#5053#0" />
-                    <element signature="e#5104#5409#0" />
-                    <element signature="e#5167#5384#0" />
-                    <element signature="e#5242#5384#0" />
-                    <element signature="e#5281#5384#0" />
+                    <element signature="e#1290#1302#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -167,6 +121,7 @@
         <option value="$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py" />
         <option value="$PROJECT_DIR$/hw1/util.py" />
         <option value="$PROJECT_DIR$/hw1/hw.py" />
+        <option value="$PROJECT_DIR$/hw2/ParallelPageRank.py" />
       </list>
     </option>
   </component>
@@ -176,16 +131,37 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="979" />
-    <option name="height" value="1050" />
+    <option name="x" value="-7" />
+    <option name="width" value="1216" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="hw2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -218,7 +194,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hw">
+  <component name="RunManager" selected="Python.ParallelPageRank">
+    <configuration name="ParallelPageRank" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RetiSociali" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw2/ParallelPageRank.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="hw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RetiSociali" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,25 +228,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw1/hw.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="sol_1_properties" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="RetiSociali" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/esercitazione_1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/esercitazione_1/sol_1_properties.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -315,19 +291,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.sol_1_properties" />
       <item itemvalue="Python.hw" />
       <item itemvalue="Python.sol_2_communities" />
       <item itemvalue="Python.util" />
       <item itemvalue="Python.sol_3_clusterizzazione" />
+      <item itemvalue="Python.ParallelPageRank" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ParallelPageRank" />
         <item itemvalue="Python.hw" />
         <item itemvalue="Python.util" />
         <item itemvalue="Python.sol_3_clusterizzazione" />
         <item itemvalue="Python.sol_2_communities" />
-        <item itemvalue="Python.sol_1_properties" />
       </list>
     </recent_temporary>
   </component>
@@ -353,53 +329,53 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32929993" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.6420613" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.40958604" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32729805" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.34257975" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14872068" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3278328" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29665738" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29520696" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3286908" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14872068" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.34257975" />
+      <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32929993" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.33844012" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32729805" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" weight="0.6420613" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32729805" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29665738" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32729805" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29665738" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3286908" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -415,11 +391,31 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>len(G[i])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(len(G[i]))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(G[i])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>float(len(G[i]))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>len(cluster1)</expression-string>
         <language-id>Python</language-id>
@@ -445,85 +441,13 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>4%2</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>3%2</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>0%1</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>i%j</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esercitazione_2/sol_2_communities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="156" column="4" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/hw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -552,34 +476,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="45" column="124" lean-forward="true" selection-start-line="45" selection-start-column="124" selection-end-line="45" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -601,13 +501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3080">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -615,27 +509,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/esercitazione_2/sol_2_communities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3440">
@@ -671,13 +547,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2920">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3120">
@@ -685,13 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520060">
-          <caret line="26003" column="3" selection-start-line="26003" selection-end-line="26003" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/hw1/g_test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -699,20 +563,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
     <entry file="file://$PROJECT_DIR$/hw1/g_test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -720,74 +572,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27_64/Lib/copy_reg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27_64/Lib/site-packages/joblib/parallel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="182" selection-start-line="182" selection-end-line="182" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_fb/3437.edges">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13120" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27_64/Lib/site-packages/networkx-2.1-py2.7.egg/networkx/classes/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="1575" selection-start-line="1575" selection-end-line="1575" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27_64/Lib/site-packages/priorityq/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27_64/Lib/site-packages/priorityq/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-920">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esercitazione_2/sol_2_communities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3720">
-          <caret line="190" column="26" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/Python27_64/Lib/copy_reg.py" />
+    <entry file="file://C:/Python27_64/Lib/site-packages/joblib/parallel.py" />
+    <entry file="file://$PROJECT_DIR$/data_fb/3437.edges" />
+    <entry file="file://C:/Python27_64/Lib/site-packages/networkx-2.1-py2.7.egg/networkx/classes/graph.py" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
+    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
+    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
+    <entry file="file://C:/Python27_64/Lib/site-packages/priorityq/__init__.py" />
+    <entry file="file://C:/Python27_64/Lib/site-packages/priorityq/core.py" />
     <entry file="file://$PROJECT_DIR$/esercitazione_1/sol_1_properties.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -795,37 +588,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="e#19#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py">
+    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
+    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="396" column="30" selection-start-line="396" selection-start-column="30" selection-end-line="396" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#22#0" expanded="true" />
-          </folding>
+        <state>
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw1/hw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        <state relative-caret-position="51">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/typing.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="352" column="8" selection-start-line="352" selection-start-column="8" selection-end-line="352" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esercitazione_2/sol_2_communities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="190" column="26" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/priorityq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/joblib/parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="739" selection-start-line="739" selection-end-line="739" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+          <folding>
+            <element signature="e#1290#1302#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
