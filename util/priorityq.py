@@ -27,11 +27,11 @@ class PriorityQueue:
         entry[-1] = REMOVED
         return entry[0]
 
-    def pop(self):
+    def pop(self,with_priority=False):
         'Remove and return the lowest priority task. Raise KeyError if empty.'
         while self.pq:
             priority, count, task = heappop(self.pq)
             if task is not REMOVED:
                 del self.entry_finder[task]
-                return task
+                return (task, priority) if with_priority else task
         raise KeyError('pop from an empty priority queue')

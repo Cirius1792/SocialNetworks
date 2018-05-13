@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from priorityq import PriorityQueue
+from util.priorityq import PriorityQueue
 import networkx as nx
 
 #Each of the following functions returns a PriorityQueue containing all nodes with priority equivalent to their centrality measure.
@@ -86,24 +86,28 @@ def pageRank(G,s=0.85,step=75,confidence=0):
     n = nx.number_of_nodes(G)
     done = False
     time = 0
-    
-    rank = {i:float(1)/n for i in G.nodes()} #At the beginning, I choose the starting node uniformly at the random. Hence, every node has the same probability of being verified at the beginning.
-    
+    # At the beginning, I choose the starting node uniformly at the random. Hence, every node has the same probability
+    # of being verified at the beginning.
+    rank = {i:float(1)/n for i in G.nodes()}
     while not done and time < step:
         time += 1
-        
         #tmp contains the new rank
-        tmp = {i:float(1-s)/n for i in G.nodes()} #with probability 1-s, I restart the random walk. Hence, each node is visited at the next step at least with probability (1-s)*1/n
-        
+        # with probability 1-s, I restart the random walk. Hence, each node is visited at the next step at least with
+        # probability (1-s)*1/n
+        tmp = {i:float(1-s)/n for i in G.nodes()}
         #UPDATE OPERATION
         for i in G.nodes():
             for j in G[i]:
-                tmp[j] += float(s*rank[i])/len(G[i]) #with probability s, I follow one of the link on the current page. So, if I am on page i with probability rank[i], at the next step I would be on page j at which i links with probability s*rank[i]*probability of following link (i,j) that is 1/out_degree(i)
-            
+                # with probability s, I follow one of the link on the current page. So, if I am on page i with probability
+                # rank[i], at the next step I would be on page j at which i links with probability s*rank[i]*probability
+                # of following link (i,j) that is 1/out_degree(i)
+                tmp[j] += float(s*rank[i])/len(G[i])
         #computes the difference between the old rank and the new rank and updates rank to contain the new rank
         diff = 0
         for i in G.nodes():
-            diff += abs(rank[i]-tmp[i]) #difference is computed in L1 norm. Alternatives are L2 norm (Euclidean Distance) and L_infinity norm (maximum pointwise distance)
+            # difference is computed in L1 norm. Alternatives are L2 norm (Euclidean Distance) and L_infinity norm
+            # (maximum pointwise distance)
+            diff += abs(rank[i]-tmp[i])
             rank[i] = tmp[i]
             
         if diff <= confidence:
@@ -115,7 +119,15 @@ def pageRank(G,s=0.85,step=75,confidence=0):
     
 #EXERCISE: Test how the computation time and the quality of the solution change as one changes s, step, confidence, and the norm used for computing the difference between ranks. (Suggestion: use larger graphs than the one below in order to appreciate differences)
 
-#A parallel version of page rank can be achieved by dividing the graph in num_jobs different directed subgraphs. By assuming that num_jobs is a perfect square (4, 9, 16, 25, ...) this can be done dividing the set of nodes in sqrt(num_jobs) subsets, and having subgraph 0 containing only edges from the first subset to itself, subgraph 1 containing only edges from the first subset to the second subset, ..., subgraph sqrt(num_jobs) containing only edges from the second subset to the first subset, and so on. The update operation can be then executed in parallel for each subgraph. Results can be easily combined since the new page rank of a node i in the j-th subset is given by the rank coming from nodes in the first subset (contained in the j-th result) + the rank coming from nodes in the second subset (contained in the sqrt(num_jobs)+j-th result) + ... + (1-s)/n. This combine operation also can be parallelized with each job taking care of combining the ranks of a different subset of nodes.
+#A parallel version of page rank can be achieved by dividing the graph in num_jobs different directed subgraphs.
+# By assuming that num_jobs is a perfect square (4, 9, 16, 25, ...) this can be done dividing the set of nodes in
+# sqrt(num_jobs) subsets, and having subgraph 0 containing only edges from the first subset to itself, subgraph 1
+# containing only edges from the first subset to the second subset, ..., subgraph sqrt(num_jobs) containing only edges
+#  from the second subset to the first subset, and so on. The update operation can be then executed in parallel for each
+# subgraph. Results can be easily combined since the new page rank of a node i in the j-th subset is given by the rank
+# coming from nodes in the first subset (contained in the j-th result) + the rank coming from nodes in the second subset
+#  (contained in the sqrt(num_jobs)+j-th result) + ... + (1-s)/n. This combine operation also can be parallelized with
+# each job taking care of combining the ranks of a different subset of nodes.
     
 # HITS CENTRALITY
 def hits(G, s=0.85,step=75,confidence=0):

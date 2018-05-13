@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from priorityq import PriorityQueue
+from util.priorityq import PriorityQueue
 import networkx as nx
 from math import factorial
 from scipy.special import binom 
