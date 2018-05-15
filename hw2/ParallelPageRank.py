@@ -12,6 +12,8 @@
 # coming from nodes in the first subset (contained in the j-th result) + the rank coming from nodes in the second subset
 #  (contained in the sqrt(num_jobs)+j-th result) + ... + (1-s)/n. This combine operation also can be parallelized with
 # each job taking care of combining the ranks of a different subset of nodes.
+import time
+
 import numpy
 
 from util.priorityq import PriorityQueue
@@ -64,46 +66,45 @@ def pageRank(G, s=0.85, step=75, confidence=0, flag=False):
         pq.add(u, -rank[u])
     return pq
 
-def update(G,rank, degree, s,n):
-    tmp = {i: (float(1) - s) / n for i in G.nodes()}
-
+def _evaluate(G, rank, degree, s, n):
+    tmp = {i: 0 for i in G.nodes()}
     for i in G.nodes():
         for j in G[i]:
-            tmp[j] += float(s * rank[i] / degree[i])
-    diff = 0
-    # for i in G.nodes():
-    #     diff += abs(rank[i] - tmp[i])
-    #     rank[i] = tmp[i]
-    #return {'rank': tmp, 'diff': diff}
+            tmp[j] += float(s * rank[i]) / degree[i]
     return tmp
+
+def _update(nodes, res, s, n):
+    rank = {i: float(1 - s) / n for v in nodes}
+    for node in nodes:
+        for r in res:
+            rank[node] += res[node]
+    return rank
+
+
 
 def parallelPageRank(G, s=0.85, step=75, confidence=0, n_jobs=4,flag=False):
     pq = PriorityQueue()
-    subsets, subgraphs, degree, mp = split_graph(G, n_jobs)
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G, n_jobs)
     n = nx.number_of_nodes(G)
     done = False
     time = 0
     rank = {i: ((float(1)) / n) for i in G.nodes()}
-    #rank_s = [{i: rank[i] for i in subgraphs[k].nodes()} for k in range(n_jobs)]
     mapping = dict()
-    #inv_map = {v: k for k, v in mp.items()}
-    for sets in mp:
-        for job in mp[sets]:
+    for sets in jobs_mapping:
+        for job in jobs_mapping[sets]:
             mapping[job] = sets
     with Parallel (n_jobs=n_jobs) as parallel:
         while not done and time < step:
             time += 1
             rank_s = [{i: rank[i] for i in subsets[k]} for k in range(math.ceil(math.sqrt(n_jobs)))]
-            res = parallel(delayed(update)(subgraphs[i], rank_s[mapping[i]], degree[i], s, n) for i in range(n_jobs))
-            #res = parallel(delayed(update)(subgraphs[i], rank, degree[i], s, n) for i in range(n_jobs))
+            res = parallel(delayed(_evaluate)(subgraphs[i], rank_s[mapping[i]], degree[i], s, n) for i in range(n_jobs))
             diff = 0
-            for k in range(math.ceil(math.sqrt(n_jobs))):
-                for nodes in subsets[k]:
-                    new = 0
-                    for i in mp[k]:
-                        new += res[i][nodes]
-                    diff += abs(new - rank[nodes])
-                    rank[nodes] = new
+            for nodes in G.nodes():
+                new = float(1 - s) / n
+                for r in res:
+                    new += r[nodes] if nodes in r else 0
+                diff += abs(new - rank[nodes])
+                rank[nodes] = new
             if diff <= confidence:
                 done = True
     if flag:
@@ -113,7 +114,7 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_jobs=4,flag=False):
     return pq
 
 
-def split_graph(G, n_jobs):
+def _split_graph(G, n_jobs):
     n_sets = int(math.sqrt(n_jobs))
     subsets = [[] for i in range(n_sets)]
     subgraphs = [nx.DiGraph() for i in range(n_jobs)]
@@ -124,20 +125,21 @@ def split_graph(G, n_jobs):
         i +=1
 
     #costruisco i sottografi
-    mp = { i: set() for i in range(math.ceil(math.sqrt(n_jobs)))}
+    jobs_mapping = { i: set() for i in range(math.ceil(math.sqrt(n_jobs)))}
+    res_mapping = { i: set() for i in range(math.ceil(math.sqrt(n_jobs)))}
     ng = 0
     for i in range(n_sets ):
         for j in range(n_sets ):
             for node in subsets[i]:
                 for v in G[node]:
-                    #subgraphs[ng].add_edge(node, v) if v in subsets[j] else 0
                     if v in subsets[j]:
                         subgraphs[ng].add_edge(node, v)
-                        mp[j].add(ng)
+                        jobs_mapping[i].add(ng)
+                        res_mapping[i].add(ng)
             ng += 1
     degree = [{n : G.degree(n) for n in subgraphs[i].nodes()} for i in range(n_jobs)]
 
-    return subsets, subgraphs, degree, mp
+    return subsets, subgraphs, degree, jobs_mapping, res_mapping
 
 
 
@@ -153,7 +155,8 @@ if __name__ == '__main__':
     G.add_edge('D', 'B')
     G.add_edge('D', 'C')
     graph = "../graphs/Brightkite/Brightkite_edges.txt"
-    G=load_graph(graph,True)
+    graph = "./g_test.txt"
+    #G=load_graph(graph,True)
     #s, g, degree = split_graph(G, 9)
     # print("sets:")
     # for ss in s:
@@ -164,14 +167,21 @@ if __name__ == '__main__':
     #         for neig in gg[n]:
     #             print("("+str(n)+","+str(neig)+") ")
     #     print("\n")
+    el_to_print = 4
     print("\nNormale")
+    start = time.time()
     pq_s = pageRank(G,flag=False)
-    for i in range(3):
+    stop = time.time() - start
+    print("\tt: \t"+str(stop))
+    for i in range(el_to_print):
         el, rank = pq_s.pop(with_priority=True)
         print(str(el)+"\t=\t "+str(rank))
     print("\nParallelo")
+    start = time.time()
     pq = parallelPageRank(G, flag=False)
-    for i in range(3):
+    stop = time.time() - start
+    print("\tt: \t" + str(stop))
+    for i in range(el_to_print):
         el, rank = pq.pop(with_priority=True)
         print(str(el)+"\t=\t "+str(rank))
 

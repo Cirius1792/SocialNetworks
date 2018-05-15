@@ -15,18 +15,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RetiSociali$fb_test.coverage" NAME="fb_test Coverage Results" MODIFIED="1521463155864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RetiSociali$facebook.coverage" NAME="facebook Coverage Results" MODIFIED="1521463505590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Facebook_pkg" />
-    <SUITE FILE_PATH="coverage/RetiSociali$sol_1_properties.coverage" NAME="sol_1_properties Coverage Results" MODIFIED="1522836075325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_1" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$hw.coverage" NAME="hw Coverage Results" MODIFIED="1524062342154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
-    <SUITE FILE_PATH="coverage/RetiSociali$sol_2_communities.coverage" NAME="sol_2_communities Coverage Results" MODIFIED="1523352320961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_2" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$ParallelPageRank.coverage" NAME="ParallelPageRank Coverage Results" MODIFIED="1526226159948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
-    <SUITE FILE_PATH="coverage/RetiSociali$esercitazione_1_soluzione.coverage" NAME="esercitazione_1_soluzione Coverage Results" MODIFIED="1521465134581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$sol_3_clusterizzazione.coverage" NAME="sol_3_clusterizzazione Coverage Results" MODIFIED="1523956155878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_3" />
-    <SUITE FILE_PATH="coverage/RetiSociali$util.coverage" NAME="util Coverage Results" MODIFIED="1523357738499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
-    <SUITE FILE_PATH="coverage/RetiSociali$hw.coverage" NAME="hw Coverage Results" MODIFIED="1523620571470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$util.coverage" NAME="util Coverage Results" MODIFIED="1524057078079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
     <SUITE FILE_PATH="coverage/RetiSociali$test_snap.coverage" NAME="test_snap Coverage Results" MODIFIED="1521463837542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$util.coverage" NAME="util Coverage Results" MODIFIED="1524057078079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$fb_test.coverage" NAME="fb_test Coverage Results" MODIFIED="1521463155864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RetiSociali$sol_2_communities.coverage" NAME="sol_2_communities Coverage Results" MODIFIED="1523352320961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_2" />
+    <SUITE FILE_PATH="coverage/RetiSociali$util.coverage" NAME="util Coverage Results" MODIFIED="1523357738499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$esercitazione_1_soluzione.coverage" NAME="esercitazione_1_soluzione Coverage Results" MODIFIED="1521465134581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RetiSociali$hw.coverage" NAME="hw Coverage Results" MODIFIED="1523620571470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$hw.coverage" NAME="hw Coverage Results" MODIFIED="1524062342154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$sol_1_properties.coverage" NAME="sol_1_properties Coverage Results" MODIFIED="1522836075325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_1" />
+    <SUITE FILE_PATH="coverage/RetiSociali$facebook.coverage" NAME="facebook Coverage Results" MODIFIED="1521463505590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Facebook_pkg" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$ddssadsadasdas.coverage" NAME="ddssadsadasdas Coverage Results" MODIFIED="1526398009939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$sol_3_clusterizzazione.coverage" NAME="sol_3_clusterizzazione Coverage Results" MODIFIED="1523956155878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_3" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$ParallelPageRank.coverage" NAME="ParallelPageRank Coverage Results" MODIFIED="1526398157164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
   </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
@@ -35,7 +36,7 @@
           <file leaf-file-name="HW1.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="280">
                   <caret line="14" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
@@ -44,10 +45,10 @@
           <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="249">
-                  <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+                <state relative-caret-position="160">
+                  <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
                   <folding>
-                    <element signature="e#1290#1302#0" expanded="true" />
+                    <element signature="e#1290#1301#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -60,10 +61,22 @@
           <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="41" column="35" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="35" />
+                <state relative-caret-position="280">
+                  <caret line="98" column="33" selection-start-line="98" selection-end-line="99" />
                   <folding>
-                    <element signature="e#1290#1302#0" expanded="true" />
+                    <element signature="e#1290#1301#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ddssadsadasdas.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1467">
+                  <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+                  <folding>
+                    <element signature="e#0#12#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -121,6 +134,7 @@
         <option value="$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py" />
         <option value="$PROJECT_DIR$/hw1/util.py" />
         <option value="$PROJECT_DIR$/hw1/hw.py" />
+        <option value="$PROJECT_DIR$/hw2/ddssadsadasdas.py" />
         <option value="$PROJECT_DIR$/hw2/ParallelPageRank.py" />
       </list>
     </option>
@@ -135,9 +149,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1216" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -151,6 +165,11 @@
             <path>
               <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
@@ -170,16 +189,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\SocialNetworks\hw2" />
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\Facebook_pkg" />
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\facebook" />
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\hw1" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\Facebook_pkg" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\facebook\data" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\Facebook_pkg" />
-      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\facebook" />
-      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -214,6 +234,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="ddssadsadasdas" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RetiSociali" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw2/ddssadsadasdas.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="hw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RetiSociali" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -228,25 +267,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw1/hw.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="sol_2_communities" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="RetiSociali" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/esercitazione_2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/esercitazione_2/sol_2_communities.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -292,18 +312,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.hw" />
-      <item itemvalue="Python.sol_2_communities" />
       <item itemvalue="Python.util" />
       <item itemvalue="Python.sol_3_clusterizzazione" />
       <item itemvalue="Python.ParallelPageRank" />
+      <item itemvalue="Python.ddssadsadasdas" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.ParallelPageRank" />
+        <item itemvalue="Python.ddssadsadasdas" />
         <item itemvalue="Python.hw" />
         <item itemvalue="Python.util" />
         <item itemvalue="Python.sol_3_clusterizzazione" />
-        <item itemvalue="Python.sol_2_communities" />
       </list>
     </recent_temporary>
   </component>
@@ -329,53 +349,54 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32929993" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.40958604" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32729805" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14872068" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32729805" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.2869081" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32729805" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32013422" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32729805" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3278328" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29520696" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.52785516" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3278328" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14872068" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32013422" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32929993" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" weight="0.6420613" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.5111421" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32729805" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.29665738" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32729805" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32729805" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3286908" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.52785516" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3278328" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -391,7 +412,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -444,8 +465,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
@@ -565,13 +584,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
-    <entry file="file://$PROJECT_DIR$/hw1/g_test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27_64/Lib/copy_reg.py" />
     <entry file="file://C:/Python27_64/Lib/site-packages/joblib/parallel.py" />
     <entry file="file://$PROJECT_DIR$/data_fb/3437.edges" />
@@ -596,13 +608,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw1/util.py" />
-    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw1/hw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -638,12 +643,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/g_test.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/g_test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1467">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+        <state relative-caret-position="160">
+          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
           <folding>
-            <element signature="e#1290#1302#0" expanded="true" />
+            <element signature="e#1290#1301#0" expanded="true" />
           </folding>
         </state>
       </provider>
