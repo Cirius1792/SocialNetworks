@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f25955b-00c7-44c3-a6a9-42956372d139" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw2/ParallelPageRank.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/ParallelPageRank.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw2/g_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/g_test.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +24,7 @@
     <SUITE FILE_PATH="coverage/RetiSociali$facebook.coverage" NAME="facebook Coverage Results" MODIFIED="1521463505590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Facebook_pkg" />
     <SUITE FILE_PATH="coverage/SocialNetworks$ddssadsadasdas.coverage" NAME="ddssadsadasdas Coverage Results" MODIFIED="1526398009939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
     <SUITE FILE_PATH="coverage/SocialNetworks$sol_3_clusterizzazione.coverage" NAME="sol_3_clusterizzazione Coverage Results" MODIFIED="1523956155878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/esercitazione_3" />
-    <SUITE FILE_PATH="coverage/SocialNetworks$ParallelPageRank.coverage" NAME="ParallelPageRank Coverage Results" MODIFIED="1526457838444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
+    <SUITE FILE_PATH="coverage/SocialNetworks$ParallelPageRank.coverage" NAME="ParallelPageRank Coverage Results" MODIFIED="1526459882237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
@@ -39,32 +37,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
+      <file leaf-file-name="ddssadsadasdas.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+            <state relative-caret-position="320">
+              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
-                <element signature="e#1290#1301#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="g_test.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw2/g_test.txt">
+      <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+            <state relative-caret-position="513">
+              <caret line="218" column="18" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
+              <folding>
+                <element signature="e#1290#1301#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -347,15 +339,15 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.3168449" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32729805" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.27540293" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" weight="0.3168449" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3262032" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16327961" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Debug" order="5" weight="0.4590049" />
+      <window_info active="true" anchor="right" id="Debug" order="5" visible="true" weight="0.4590049" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -367,7 +359,7 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27540293" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16327961" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -379,9 +371,9 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.3168449" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32729805" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
-      <window_info active="true" anchor="right" id="Debug" order="5" visible="true" weight="0.35809392" />
+      <window_info active="true" anchor="right" id="Debug" order="5" visible="true" weight="0.4590049" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32729805" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3262032" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
@@ -408,8 +400,13 @@
           <line>76</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hw2/ParallelPageRank.py</url>
+          <line>165</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="45" />
+      <option name="time" value="48" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -494,20 +491,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw1/hw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
     <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
     <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
@@ -686,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/joblib/parallel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -717,10 +690,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/networkx/classes/coreviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/networkx/classes/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="439" selection-start-line="439" selection-end-line="439" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+        <state relative-caret-position="513">
+          <caret line="218" column="18" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
           <folding>
             <element signature="e#1290#1301#0" expanded="true" />
           </folding>

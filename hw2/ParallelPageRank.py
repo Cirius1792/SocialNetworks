@@ -87,7 +87,7 @@ def _update(nodes, res, s, n, old=None):
 def parallelPageRank(G, s=0.85, step=75, confidence=0, n_subsets=4, flag=False):
     pq = PriorityQueue()
     start = time.time()
-    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G, n_subsets ** 2)
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph2(G, n_subsets)
     stop = time.time()-start
     print("preparazione sottostrutture. t = \t"+"{0:.4f}".format(stop))
     n = nx.number_of_nodes(G)
@@ -125,9 +125,56 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_subsets=4, flag=False):
 
     return pq
 
+def _split_graph2(G,n_sets):
+    n_subgraphs = n_sets ** 2
+    #OLD
+    #subsets = [[] for i in range(n_sets)]
+    subsets = []
+    subgraphs = [nx.DiGraph() for i in range(n_subgraphs)]
+    i = 0
+    # costruisco i set
+    node_list = list(G.nodes())
+    step = int(G.number_of_nodes()/n_sets)
+    for i in range(n_sets):
+        subsets.append(node_list[i*step:(i+1)*step])
+    #Infilo eventuali nodi spari nell'ultimo set
+    subsets[-1]= node_list[n_sets*step:]
+    # OLD
+    # for u in G.nodes():
+    #     subsets[i % n_sets].append(u)
+    #     i += 1
 
-def _split_graph(G, n_subgraphs):
-    n_sets = int(math.sqrt(n_subgraphs))
+    # costruisco i sottografi
+    jobs_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
+    res_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
+    ng = 0
+    start = time.time()
+    #OLD
+    for i in range(n_sets):
+        for j in range(n_sets):
+            for node in subsets[i]:
+                for v in G[node]:
+                    if v in subsets[j]:
+                        subgraphs[ng].add_edge(node, v)
+            jobs_mapping[i].add(ng)
+            res_mapping[j].add(ng)
+            ng += 1
+
+
+    stop = time.time() - start
+    # print("tempo di tutto sto ciclo enorme: "+"{0:.4f}".format(stop))
+    mapping = dict()
+    for s in jobs_mapping:
+        for job in jobs_mapping[s]:
+            mapping[job] = s
+    jobs_mapping = mapping
+    degree = [{n: G.degree(n) for n in subgraphs[i].nodes()} for i in range(n_subgraphs)]
+
+    return subsets, subgraphs, degree, jobs_mapping, res_mapping
+
+
+def _split_graph(G, n_sets):
+    n_subgraphs = n_sets**2
     subsets = [[] for i in range(n_sets)]
     subgraphs = [nx.DiGraph() for i in range(n_subgraphs)]
     i = 0
@@ -140,6 +187,7 @@ def _split_graph(G, n_subgraphs):
     jobs_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
     res_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
     ng = 0
+    start = time.time()
     for i in range(n_sets ):
         for j in range(n_sets):
             for node in subsets[i]:
@@ -149,16 +197,26 @@ def _split_graph(G, n_subgraphs):
             jobs_mapping[i].add(ng)
             res_mapping[j].add(ng)
             ng += 1
+    stop = time.time() - start
+    #print("tempo di tutto sto ciclo enorme: "+"{0:.4f}".format(stop))
     mapping = dict()
-    for sets in jobs_mapping:
-        for job in jobs_mapping[sets]:
-            mapping[job] = sets
+    for s in jobs_mapping:
+        for job in jobs_mapping[s]:
+            mapping[job] = s
     jobs_mapping = mapping
     degree = [{n : G.degree(n) for n in subgraphs[i].nodes()} for i in range(n_subgraphs)]
 
     return subsets, subgraphs, degree, jobs_mapping, res_mapping
 
-
+def test_split(G, n_sets):
+    start = time.time()
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G,n_sets=n_sets)
+    stop = time.time() - start
+    print("split 1: "+str(stop))
+    start = time.time()
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph2(G, n_sets=n_sets)
+    stop = time.time() - start
+    print("split 2: " + str(stop))
 def test():
     G = nx.DiGraph()
 
@@ -173,7 +231,7 @@ def test():
     graph = ["../graphs/Brightkite/Brightkite_edges.txt",
              "../graphs/ego-gplus/out.ego-gplus",
              "./g_test.txt"]
-    G=load_graph(graph[0],True)
+    G=load_graph(graph[2],True)
     print("\tnodes: \t"+str(G.number_of_nodes()))
 
 
