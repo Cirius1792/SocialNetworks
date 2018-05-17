@@ -17,11 +17,12 @@ def shapley_degree(G):
     return SV
 
 # Consider another extension of degree centrality
-# Specifically, we assume that to influence a node outside a coalition is necessary that at least k of its neighbors are within the coalition
-# That, the characteristic function is value(C) = |C| + |N(C,k)|, where N(C,k) is the set of nodes outside C with at least k neighbors in C
-# It has been proved that the Shapley value of node v in this case is SV[v] = min(1,k/(1+deg(v))) + sum_{u \in N(v), u != v} max(O,(deg(u)-k+1)/(deg(u)*(1+deg(u)))
+# Specifically, we assume that to influence a node outside a coalition is necessary that at least k of its neighbors are
+#  within the coalition. That, the characteristic function is value(C) = |C| + |N(C,k)|, where N(C,k) is the set of nodes
+# outside C with at least k neighbors in C It has been proved that the Shapley value of node v in this case is
+# SV[v] = min(1,k/(1+deg(v))) + sum_{u \in N(v), u != v} max(O,(deg(u)-k+1)/(deg(u)*(1+deg(u)))
 # For more information, see Michalack et al. (JAIR 2013) sec. 4.2
-def shapley_threshold(G,k):
+def shapley_threshold(G,k=10):
     SV={v:min(1,k/(1+G.degree(v))) for v in G.nodes()}
     for v in G.nodes():
         for u in G[v]:

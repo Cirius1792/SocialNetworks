@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f25955b-00c7-44c3-a6a9-42956372d139" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hw2/ParallelPageRank.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/ParallelPageRank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esercitazione_4/CentralityGT.py" beforeDir="false" afterPath="$PROJECT_DIR$/esercitazione_4/CentralityGT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esercitazione_5/es_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/esercitazione_5/es_5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/SVBetweennes.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/SVBetweennes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/centrality_measure_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/centrality_measure_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,23 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ddssadsadasdas.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ParallelPageRank.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="218" column="18" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
+            <state relative-caret-position="20">
+              <caret line="217" column="30" selection-start-line="217" selection-start-column="30" selection-end-line="217" selection-end-column="30" />
               <folding>
                 <element signature="e#1290#1301#0" expanded="true" />
               </folding>
@@ -61,11 +53,39 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="centrality_measure_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw2/centrality_measure_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+              <folding>
+                <element signature="e#257#268#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CentralityGT.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esercitazione_4/CentralityGT.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Centrality.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esercitazione_4/Centrality.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3360" />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SVBetweennes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/SVBetweennes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2940">
-              <caret line="156" column="55" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="55" />
+            <state relative-caret-position="-520">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -102,6 +122,10 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/hw2/centrality_measure_test.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/esercitazione_5/es_5.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -123,6 +147,11 @@
         <option value="$PROJECT_DIR$/hw2/ddssadsadasdas.py" />
         <option value="$PROJECT_DIR$/hw2/g_test.txt" />
         <option value="$PROJECT_DIR$/hw2/ParallelPageRank.py" />
+        <option value="$PROJECT_DIR$/esercitazione_5/es_5.py" />
+        <option value="$PROJECT_DIR$/BOB/ParallelPageRank.py" />
+        <option value="$PROJECT_DIR$/esercitazione_4/CentralityGT.py" />
+        <option value="$PROJECT_DIR$/hw2/SVBetweennes.py" />
+        <option value="$PROJECT_DIR$/hw2/centrality_measure_test.py" />
       </list>
     </option>
   </component>
@@ -136,8 +165,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
@@ -156,6 +185,38 @@
             <path>
               <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="BOB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="esercitazione_4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="esercitazione_5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+              <item name="Brightkite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+              <item name="ego-gplus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialNetworks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialNetworks" type="462c0819:PsiDirectoryNode" />
               <item name="hw2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -168,16 +229,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\SocialNetworks\graphs" />
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\SocialNetworks\BOB" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\SocialNetworks\hw2" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\Facebook_pkg" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\facebook" />
-      <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ciro Lucio\PycharmProjects\SocialNetworks\graphs" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\hw1" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali" />
       <recent name="C:\Users\Ciro Lucio\PycharmProjects\RetiSociali\Facebook_pkg" />
@@ -332,7 +395,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-7" width="1487" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32929993" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
@@ -340,14 +402,14 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" weight="0.3168449" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3262032" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16327961" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32486632" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16748424" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="right" id="Debug" order="5" visible="true" weight="0.4590049" />
+      <window_info anchor="right" id="Debug" order="5" weight="0.4590049" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -359,15 +421,14 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16327961" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16327961" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32929993" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49562362" visible="true" weight="0.3168449" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32729805" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729805" />
@@ -375,10 +436,11 @@
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3262032" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50437635" side_tool="true" weight="0.33736265" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3278328" />
+      <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3278328" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -491,32 +553,23 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw1/p2p-Gnutella25/p2p-Gnutella25.txt" />
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/out.ego-gplus" />
-    <entry file="file://$PROJECT_DIR$/hw1/ego-gplus/meta.ego-gplus" />
-    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
-    <entry file="file://$PROJECT_DIR$/hw1/HW1.txt">
+    <entry file="file://$PROJECT_DIR$/hw2/SVBetweennes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="2940">
+          <caret line="156" column="55" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esercitazione_1/sol_1_properties.py">
+    <entry file="file://$PROJECT_DIR$/hw2/centrality_measure_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#257#268#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/hw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw1/util.py" />
     <entry file="file://$PROJECT_DIR$/esercitazione_3/sol_3_clusterizzazione.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -653,22 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/hw2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/SVBetweennes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2940">
-          <caret line="156" column="55" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/joblib/parallel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -683,7 +720,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/g_test.txt">
+    <entry file="file://$PROJECT_DIR$/graphs/g_test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
@@ -704,22 +741,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py">
+    <entry file="file://$PROJECT_DIR$/hw2/ddssadsadasdas.py" />
+    <entry file="file://$PROJECT_DIR$/graphs/CA-AstroPh.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BOB/ParallelPageRank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphs/Amazon/com-amazon.ungraph.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esercitazione_4/Centrality.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esercitazione_5/es_5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw2/ParallelPageRank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="218" column="18" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
+        <state relative-caret-position="20">
+          <caret line="217" column="30" selection-start-line="217" selection-start-column="30" selection-end-line="217" selection-end-column="30" />
           <folding>
             <element signature="e#1290#1301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esercitazione_4/CentralityGT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/SVBetweennes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/centrality_measure_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+          <folding>
+            <element signature="e#257#268#0" expanded="true" />
           </folding>
         </state>
       </provider>
