@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import networkx as nx
-from priorityq import PQ
+from util.priorityq import PriorityQueue
 import random
 from scipy.sparse import linalg, coo_matrix
 import numpy as np
@@ -11,7 +11,7 @@ import numpy as np
 
 def hierarchical(G):
     # Create a priority queue with each pair of nodes indexed by distance
-    pq = PQ()
+    pq = PriorityQueue()
     for u in G.nodes():
         for v in G.nodes():
             if u != v:
@@ -123,7 +123,7 @@ def betweenness(G):
 def bwt_cluster(G):
     b = betweenness(G)
     graph = G.copy()
-    pq = PQ()
+    pq = PriorityQueue()
     for x in b.keys():
         pq.add(x, -b[x])
 
@@ -164,18 +164,18 @@ def spectral(G):
 
 # How to achieve more than two clusters? Two options: (i) recursively split in clusters using the same approach on each of the two subgraphs; (ii) use other eigenvectors
 # EXERCISE: implement both these generalizations.
-
-G = nx.Graph()
-G.add_edge('A', 'B')
-G.add_edge('A', 'C')
-G.add_edge('B', 'C')
-G.add_edge('B', 'D')
-G.add_edge('D', 'E')
-G.add_edge('D', 'F')
-G.add_edge('D', 'G')
-G.add_edge('E', 'F')
-G.add_edge('F', 'G')
-# hierarchical(G)
-# two_means(G)
-bwt_cluster(G)
-#spectral(G)
+if __name__ == '__main__':
+    G = nx.Graph()
+    G.add_edge('A', 'B')
+    G.add_edge('A', 'C')
+    G.add_edge('B', 'C')
+    G.add_edge('B', 'D')
+    G.add_edge('D', 'E')
+    G.add_edge('D', 'F')
+    G.add_edge('D', 'G')
+    G.add_edge('E', 'F')
+    G.add_edge('F', 'G')
+    # hierarchical(G)
+    # two_means(G)
+    bwt_cluster(G)
+    #spectral(G)

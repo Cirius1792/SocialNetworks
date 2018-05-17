@@ -191,7 +191,7 @@ def strongly2(G):
                 visited.add(u)
 
             # Run a BFS on the graph with the direction of edges reversed to list all nodes that can reach "node"
-            igraph = graph.reverse(False)
+            igraph = graph.reverse(False) if type(graph) is nx.DiGraph else graph
             ivisited = set()
             queue = [node]
             while len(queue) > 0:

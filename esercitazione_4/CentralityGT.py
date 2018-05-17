@@ -17,11 +17,12 @@ def shapley_degree(G):
     return SV
 
 # Consider another extension of degree centrality
-# Specifically, we assume that to influence a node outside a coalition is necessary that at least k of its neighbors are within the coalition
-# That, the characteristic function is value(C) = |C| + |N(C,k)|, where N(C,k) is the set of nodes outside C with at least k neighbors in C
-# It has been proved that the Shapley value of node v in this case is SV[v] = min(1,k/(1+deg(v))) + sum_{u \in N(v), u != v} max(O,(deg(u)-k+1)/(deg(u)*(1+deg(u)))
+# Specifically, we assume that to influence a node outside a coalition is necessary that at least k of its neighbors are
+#  within the coalition. That, the characteristic function is value(C) = |C| + |N(C,k)|, where N(C,k) is the set of nodes
+# outside C with at least k neighbors in C It has been proved that the Shapley value of node v in this case is
+# SV[v] = min(1,k/(1+deg(v))) + sum_{u \in N(v), u != v} max(O,(deg(u)-k+1)/(deg(u)*(1+deg(u)))
 # For more information, see Michalack et al. (JAIR 2013) sec. 4.2
-def shapley_threshold(G,k):
+def shapley_threshold(G,k=10):
     SV={v:min(1,k/(1+G.degree(v))) for v in G.nodes()}
     for v in G.nodes():
         for u in G[v]:
@@ -38,8 +39,19 @@ def shapley_threshold(G,k):
 # For more information, see Michalack et al. (JAIR 2013) sec. 4.4
 def shapley_closeness(G):
     SV={v:0 for v in G.nodes()}
+    cnt = 1
+    n_nodes = G.number_of_nodes()
+    print("\r" + "{0:.2f}".format((float(cnt) / n_nodes) * 100) + "%", end="")
     for v in G.nodes():
-        nodes=sorted(({'node':u,'dist':nx.shortest_path_length(G,u,v)} for u in G.nodes()),key=lambda x:x['dist'])
+        if cnt%50==0:
+            print("\r"+"{0:.2f}".format((float(cnt)/n_nodes)*100)+"%", end="")
+        cnt +=1
+        #nodes=sorted(({'node':u,'dist':nx.shortest_path_length(G,u,v)} for u in G.nodes()),key=lambda x:x['dist'])
+        nodes = list()
+        for u in G.nodes():
+            dist = nx.shortest_path_length(G,u,v) if nx.has_path(G,u,v) else float('inf')
+            nodes.append({'node':u,'dist':dist})
+        nodes = sorted(nodes,key=lambda x:x['dist'])
         somma=0
         prev_dist=-1
         prev_SV=-1
@@ -55,6 +67,7 @@ def shapley_closeness(G):
             prev_dist=nodes[i]['dist']
             prev_SV = curr_SV
         SV[v] -= somma
+    print("\r",end="")
     return SV
 
 # The following measure assumes that the importance of a node does not depend only on its own (topological) properties,
@@ -92,18 +105,21 @@ def community_degree(G,communities):
 
 # All above measures assume that all coalitions are feasible
 # Next, we consider that the feasibility of coalition is constrained from the graph G
-# Specifically, a coalition C is feasible only if for every pair of nodes u,v in C there is a path in G that: (i) consists only of nodes in C; (ii) connects u and v.
+# Specifically, a coalition C is feasible only if for every pair of nodes u,v in C there is a path in G that:
+#   (i) consists only of nodes in C;
+#   (ii) connects u and v.
 # E.g., in the graph G={(1,2),(2,3)}, the coalition {1,3} is not feasible, whereas the coalition {1,2,3} is feasible
 # Clearly, the value of each node cannot computed with the Shapley value (that assume all coalitions are feasible),
 # but with a similar measure, named Myerson value
 # As for Shapley value, the Myerson value can be computed for every characteristic function
 # Moreover the Myerson value can always be computed in polynomial time in the number of feasible coalition (and the size of the graph)
-# The algorithm simply generate all possible feasible coalitions, through a DFS visit of the graph, and add the contribution of this coalition to the Myerson value of each node
-# Be careful, that, in many setting, the number of coalitions allowed by the graph can be exponentially large
-# (in particular, if G is a clique, all coalitions are feasible and we are just implementing the exponential-time naive algorithm for the Shapley value)
-# In order to use the Myerson value as a centrality measure it makes sense to consider superadditive characteristic functions,
-# that is characteristic functions that increase as new node are added to the coalition.
-# In this way, a node is more important when it enables big coalitions.
+#
+# The algorithm simply generate all possible feasible coalitions, through a DFS visit of the graph, and add the contribution
+# of this coalition to the Myerson value of each node. Be careful, that, in many setting, the number of coalitions allowed
+# by the graph can be exponentially large (in particular, if G is a clique, all coalitions are feasible and we are just
+# implementing the exponential-time naive algorithm for the Shapley value). In order to use the Myerson value as a
+# centrality measure it makes sense to consider superadditive characteristic functions, that is characteristic functions
+# that increase as new node are added to the coalition. In this way, a node is more important when it enables big coalitions.
 # Below, we show an implementation when the characteristic function is value(C) = |C|^2
 # For more information, see Skibski et al. (AAMAS 2014) sec. 5
 def myerson(G):
@@ -154,17 +170,18 @@ def myerson_rec(nodes,neighbors,myerson,path,subgraph,forbidden,subneigh,start):
         for i in subneigh:
             myerson[i] -= len(subgraph)**2*factorial(len(subgraph))*factorial(len(subneigh)-1)/factorial(len(subgraph)+len(subneigh)) #for using a different characteristic function V, simply substitute len(subgraph)**2 with V(subgraph)
 # EXERCISE: Test with different characteristic function
+if __name__ == '__main__':
 
-G=nx.Graph()
-G.add_edge(1,2)
-G.add_edge(2,3)
-G.add_edge(3,4)
-G.add_edge(3,5)
-print(shapley_degree(G))
-print(shapley_threshold(G,2))
-print(shapley_closeness(G))
-print(community_degree(G,[{1,2},{3,4,5}]))
-print(myerson(G))
+    G=nx.Graph()
+    G.add_edge(1,2)
+    G.add_edge(2,3)
+    G.add_edge(3,4)
+    G.add_edge(3,5)
+    print(shapley_degree(G))
+    print(shapley_threshold(G,2))
+    print(shapley_closeness(G))
+    print(community_degree(G,[{1,2},{3,4,5}]))
+    print(myerson(G))
 
 
 

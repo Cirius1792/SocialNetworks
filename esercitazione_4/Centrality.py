@@ -38,9 +38,12 @@ def betweenness(G):
     pq=PriorityQueue()
     
     betweenness = {i:0 for i in G.nodes()}
-    
+    n_nodes = G.number_of_nodes()
+    cnt = 1
     #Compute the number of shortest paths from s to every other node
     for s in G.nodes():
+        if cnt%50==0:
+            print("\r"+"{0:.2f}".format((float(cnt)/n_nodes)*100)+"%", end="")
         #INITIALIZATION
         tree = []
         parents = {i:[] for i in G.nodes()} #it saves the nodes the parents of i in all shortest paths from s to i
@@ -71,7 +74,7 @@ def betweenness(G):
                 eflow[frozenset({c,i})] = vflow[c] * (spnum[i]/float(spnum[c])) #the number of shortest paths using vertex c is split among the edge to its parents proportionally to the number of shortest paths that the parents contributes
                 vflow[i] += eflow[frozenset({c,i})] #each shortest path that use an edge (i,c) where i is closest to s than c must use also vertex i
                 betweenness[i] += vflow[i] #betweenness of a vertex is the sum over all s of the number of shortest paths from s to other nodes using that node
-    
+    print("\r",end="")
     for u in G.nodes():
         pq.add(u, -betweenness[u])
     return pq
@@ -182,24 +185,32 @@ def hits(G, s=0.85,step=75,confidence=0):
     
 #Returns the top k nodes of G according to the centrality measure "measure"
 def top(G,measure,k):
-    pq=measure(G)
+    res=measure(G)
+    if type(res) is PriorityQueue:
+        pq = res
+    else:
+        pq = PriorityQueue()
+        for el in res:
+            pq.add(el,res[el])
     out=[]
     for i in range(k):
         out.append(pq.pop())
     return out
-    
-G=nx.Graph()
-G.add_edge('A','B')
-G.add_edge('A','C')
-G.add_edge('B','C')
-G.add_edge('B','D')
-G.add_edge('D','E')
-G.add_edge('D','F')
-G.add_edge('D','G')
-G.add_edge('E','F')
-G.add_edge('F','G')
-print(top(G,degree,3))
-print(top(G,closeness,3))
-print(top(G,betweenness,3))
-print(top(G,pageRank,3))
-print(top(G,hits,3))
+
+
+if __name__ == '__main__':
+    G=nx.Graph()
+    G.add_edge('A','B')
+    G.add_edge('A','C')
+    G.add_edge('B','C')
+    G.add_edge('B','D')
+    G.add_edge('D','E')
+    G.add_edge('D','F')
+    G.add_edge('D','G')
+    G.add_edge('E','F')
+    G.add_edge('F','G')
+    print(top(G,degree,3))
+    print(top(G,closeness,3))
+    print(top(G,betweenness,3))
+    print(top(G,pageRank,3))
+    print(top(G,hits,3))
