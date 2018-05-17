@@ -3,6 +3,7 @@
 # shapley_degree, shapley_treshold, shapley_closeness, shapley_betweennes, owen**, myerson) relativamente ai grafi
 # usati nel primo homework.
 import time
+#http://snap.stanford.edu/data/as-caida.html
 
 from esercitazione_4.Centrality import *
 from esercitazione_4.CentralityGT import *
@@ -11,13 +12,13 @@ from SVBetweennes import ShapleyBetweennes
 from hw1.optimized_functions import strongly2
 
 graph_paths = {#"../graphs/Brightkite/Brightkite_edges.txt": False,
-                "../graph/as-caida2007/as-caida20071105.txt":False,
+                "../graphs/as-caida2007/as-caida20071105.txt":False,
                 "../graphs/CA-AstroPh.txt": False,
                 "../graphs/ego-gplus/out.ego-gplus": True}
 
 functions = {"Degree Centrality": degree,
              "Closeness Centrality": closeness,
-             "Betweennes Centrality": betweenness,
+             "Betweennes Centrality": nx.betweenness_centrality,
              "Pagerank": pageRank,
              "Hits": hits,
              "Shapley Degree": shapley_degree,
@@ -52,16 +53,16 @@ def get_stats():
         for func_name in functions:
             start = time.time()
             print("\r"+func_name, end="")
-            #try:
-            out = top(G, functions[func_name], 50)
-            stop = time.time() - start
-            fout.write(func_name + "\t\tt: \t" + str(stop) + "\n")
-            print("\t\t t: \t" + str(stop))
-            fout.write(str(out))
-            print(str(out))
-            fout.write("\n")
-            #except:
-            #    print("impossibile calcolare: \t"+func_name)
+            try:
+                out = top(G, functions[func_name], 50)
+                stop = time.time() - start
+                fout.write(func_name + "\t\tt: \t" + str(stop) + "\n")
+                print("\t\t t: \t" + str(stop))
+                fout.write(str(out))
+                print(str(out))
+                fout.write("\n")
+            except:
+                print("impossibile calcolare: \t"+func_name)
             fout.write("########################################################################\n")
         #fout.write("########################################################################\n")
         print("########################################################################\n")
