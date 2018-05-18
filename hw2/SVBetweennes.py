@@ -155,6 +155,6 @@ def compare_results(path_res,path_ref):
 
 
 if __name__ == '__main__':
-    test_SVB()
+    #test_SVB()
     #compare_results("./results2/")
 
