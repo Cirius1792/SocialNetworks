@@ -1,7 +1,3 @@
-
-# Stampare i top 50 nodi secondo tutte le misure di centrality implementate (degree, closeness, page_rank, hits,
-# shapley_degree, shapley_treshold, shapley_closeness, shapley_betweennes, owen**, myerson) relativamente ai grafi
-# usati nel primo homework.
 import time
 #http://snap.stanford.edu/data/as-caida.html
 # Betweennes Centrality		 t: 	5504.773956775665
@@ -11,32 +7,33 @@ from esercitazione_4.Centrality import *
 from esercitazione_4.CentralityGT import *
 from util.utility import load_graph
 from SVBetweennes import ShapleyBetweennes
-from hw1.optimized_functions import strongly2
 
-graph_paths = {#"../graphs/Brightkite/Brightkite_edges.txt": False,
-                "../graphs/as-caida2007/as-caida20071105.txt":False,
+metrics = {"degree": 0, "closeness": 1, "pagerank": 2, "hits": 3, "sdegree": 4, "sthreshold": 5}
+#metrics = {"degree": 0, "closeness": 1, "pagerank": 2, "hits": 3, "sdegree": 4, "sthreshold": 5, "sbetweennes": 6}
+
+graph_paths = { "../graphs/as-caida2007/as-caida20071105.txt":False,
                 "../graphs/CA-AstroPh.txt": False,
                 "../graphs/ego-gplus/out.ego-gplus": True}
-#
-# functions = {"Degree Centrality": degree,
-#              "Closeness Centrality": closeness,
-#              #"Betweennes Centrality": nx.betweenness_centrality,
-#              "Pagerank": pageRank,
-#              "Hits": hits,
-#              "Shapley Degree": shapley_degree,
-#              "Shapley Threshold": shapley_threshold,
-#              #"Shapley Closeness": shapley_closeness,
-#              "Myerson": myerson,
-#              #"Shapley Betweennes": ShapleyBetweennes
-#              }
 
 functions = {
-#              "Myerson": myerson,
-#              #"Shapley Betweennes": ShapleyBetweennes
-             "Shapley Closeness": shapley_closeness
+            "Degree Centrality": degree,
+             "Closeness Centrality": closeness,
+             #"Betweennes Centrality": nx.betweenness_centrality,
+             "Pagerank": pageRank,
+             "Hits": hits,
+             "Shapley Degree": shapley_degree,
+             "Shapley Threshold": shapley_threshold,
+             #"Shapley Closeness": shapley_closeness,
+             "Myerson": myerson,
+             #"Shapley Betweennes": ShapleyBetweennes
+             }
 
-              }
 
+def load_SVB(path):
+    file = open(path)
+    for line in path:
+        if line != '\n':
+            s = line.split()
 
 def get_stats():
     cnt = 0
@@ -49,12 +46,6 @@ def get_stats():
         fout.write(g)
         fout.write("\n")
         print("\n")
-        # ssc = strongly2(G)
-        # max = ssc[0]
-        # for s in ssc:
-        #     if len(s)> len(max):
-        #         max = s
-        # G = G.subgraph(max)
         for func_name in functions:
             start = time.time()
             print("\r"+func_name, end="")
@@ -76,6 +67,80 @@ def get_stats():
         fout.close()
 
 
+def compare(a, b):
+    cnt = 0
+    for el in a:
+        cnt +=1 if el in b else 0
+    return cnt
+
+def compare_stats1(path):
+
+    cm = [[0 for i in range(len(metrics))] for i in range(len(metrics))]
+    values = {i:set() for i in metrics}
+    file = open(path,'r')
+
+    for line in file:
+        if line != '\n':
+            s = line.split(':')
+            metric = s[0]
+            vals = s[1].split(',')
+            cnt = 0
+            for val in vals:
+                values[metric].add(val.strip())
+                cnt += 1
+    for i in metrics:
+        for j in metrics:
+            cm[metrics[i]][metrics[j]] += compare(values[i], values[j])
+    return cm
+
+def compare_stats(path):
+    cm = [[0 for i in range(len(metrics))] for i in range(len(metrics))]
+    values = {i:set() for i in metrics}
+    file = open(path,'r')
+
+    for line in file:
+        if line != '\n':
+            s = line.split(':')
+            metric = s[0]
+            vals = s[1].split(',')
+            cnt = 0
+            for val in vals:
+                values[metric].add(val.strip())
+                cnt += 1
+    for i in metrics:
+        for j in metrics:
+            cm[metrics[i]][metrics[j]] += compare(values[i], values[j])
+    return cm
+
+def print_cm(cm):
+    out = "\t"
+    m = 0
+    for label in metrics:
+        out += str(metrics[label])+"\t "
+    out += "\n"
+    for row in metrics:
+        #out += row+" \t\t\t  " #if len(row)> m/2 else row+" \t\t\t\t  "
+        out += str(metrics[row])+"\t"
+        for column in metrics:
+            out += str(cm[metrics[row]][metrics[column]])+"\t"
+        out += "\n"
+    for label in metrics:
+        out += str(metrics[label])+":"+label+"\n"
+    print(out)
+    return out
+
+
+def eval_stats():
+    res = ["as-caida20071105.txt", "AstroPh.txt", "gplus.txt"]
+    for r in res:
+        print(r)
+        cm = compare_stats("./results/" + r)
+        print_cm(cm)
+
+
 if __name__ == '__main__':
     get_stats()
+    #I file devono essere prima preparati per l'analisi
+    eval_stats()
+
 

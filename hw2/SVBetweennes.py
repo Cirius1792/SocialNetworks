@@ -7,17 +7,22 @@ import random
 import time
 import os
 
-import networkx as nx
-import itertools as it
 from util.utility import *
-from hw1.optimized_functions import strongly2
 from util.priorityq import PriorityQueue
 
 def ShapleyBetweennes(G, k=None, enqueue=False):
+    """ Implementa il calcolo della Shapley Betweennes (ref. Szczepa´nski, Michalak, Rahwan)
+        Parametri:
+            -   G:      grafo su cui effettuare le operazioni
+            -   k:      percentuale dei nodi da considerare per il calcolo dell'SV, nel caso in cui se ne volesse solo una
+                        misura approssimata
+            -   enqueue:se True restituisce una PriorityQueue contenente i  nodi ed i relativi SV, altrimenti restituisce
+                        la mappa nodo SV
+    """
     if k is None:
         Nodes = G
     else:
-        Nodes = random.sample(G.nodes(), k)
+        Nodes = random.sample(G.nodes(), int(math.ceil(G.number_of_nodes()*k)))
     sv = {i : 0 for i in G.nodes()}
     pq = PriorityQueue()
     n = len(Nodes)
@@ -63,45 +68,10 @@ def ShapleyBetweennes(G, k=None, enqueue=False):
 
     return (sv, pq) if enqueue else sv
 
-def ShapleyBetweennes2(G):
-    shortest_path = dict()
-    sv = {v: 0 for v in G.nodes()}
-    for s in G.nodes():
-        for d in G.nodes():
-            if s != d:
-                shortest_path[(s,d)] = nx.all_shortest_paths(G,s,d) if nx.has_path(G,s,d) else None
-                shortest_path[(d,s)] = nx.all_shortest_paths(G,d,s) if nx.has_path(G,d,s) else None
-    sigma = {pair: 0 for pair in shortest_path}
-    dist = {pair: float('inf') for pair in shortest_path}
-    sigma_v = {pair: {v: 0 for v in G.nodes()} for pair in shortest_path}
-    for pair in shortest_path:
-        source, target = pair
-        if shortest_path[pair] is not None:
-            l = []
-            for paths in shortest_path[pair]:
-                s = set()
-                for n in paths:
-                    s.add(n)
-                l.append(s)
-            shortest_path[pair] = l
-            sigma[pair] = len(l)
-            dist[pair] = nx.shortest_path_length(G,source, target)
-            #print("pair:"+str(pair)+"\t dist:"+str(dist[pair]))
-
-    # print("sigma e dist")
-    # for el in shortest_path:
-    #     print("pair:"+str(el))
-    #     print("\tv: "+str(sigma[el])+"\tdist:"+str(dist[el]))
-    for v in G.nodes():
-        for s in G.nodes():
-            for t in G.nodes():
-                if s!= v and t != v:
-                    sv[v] = sigma_v[()]
-    return shortest_path
 
 def stats_SVB(G, top, k=1):
     start = time.time()
-    sv, pq=ShapleyBetweennes(G, k=math.ceil(G.number_of_nodes()*k), enqueue=True)
+    sv, pq=ShapleyBetweennes(G, k, enqueue=True)
     #sv, pq=ShapleyBetweennes(G, enqueue=True)
     stop = time.time() - start
     out=[]
@@ -155,6 +125,9 @@ def compare_results(path_res,path_ref):
 
 
 if __name__ == '__main__':
-    #test_SVB()
-    #compare_results("./results2/")
+    test_SVB()
+    print("Astro")
+    compare_results("./results2/astro/","./results2/SVB_g1_REFERENCE.txt")
+    print("\n\nGnutella")
+    compare_results("./results2/gnutella/","./results2/SVB_g2_REFERENCE.txt")
 
