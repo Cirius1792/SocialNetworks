@@ -99,7 +99,7 @@ def ShapleyBetweennes2(G):
                     sv[v] = sigma_v[()]
     return shortest_path
 
-def stats_SVB(G,top, k=1):
+def stats_SVB(G, top, k=1):
     start = time.time()
     sv, pq=ShapleyBetweennes(G, k=math.ceil(G.number_of_nodes()*k), enqueue=True)
     #sv, pq=ShapleyBetweennes(G, enqueue=True)
@@ -113,30 +113,35 @@ def stats_SVB(G,top, k=1):
     return out
 
 def test_SVB():
-    graphs = ["../graphs/ego-gplus/out.ego-gplus",
-              "../graphs/p2p-Gnutella25/p2p-Gnutella25.txt"]
+    graphs = {"../graphs/CA-AstroPh.txt":False,
+              "../graphs/p2p-Gnutella25/p2p-Gnutella25.txt":True}
     cnt = 0
-    for graph in graphs:
+    for graph_name in graphs:
         cnt +=1
-        G = load_graph(graph, True)
+        G = load_graph(graph_name, graphs[graph_name])
         print("nodes: " + str(G.number_of_nodes()) + "\t edges: " + str(G.number_of_edges()))
+        out = stats_SVB(G, 50)
+        file = open("./results2/SVB_" + "g" + str(cnt) + "_REFERENCE.txt", 'w')
+        for el in out:
+            file.write(el + "\n")
+        file.close()
         for p in range(70,100,10):
             pr = p/100.00
-            out = stats_SVB(G,100,pr)
-            file = open("./results/SVB_"+"g"+str(cnt)+"_"+str(p)+".txt", 'w')
+            out = stats_SVB(G,50,pr)
+            file = open("./results2/SVB_"+"g"+str(cnt)+"_"+str(p)+".txt", 'w')
             for el in out:
                 file.write(el+"\n")
             file.close()
 
-def compare_results(path):
-    file = open("Shapley_Betweennes_completo.txt",'r')
+def compare_results(path_res,path_ref):
+    file = open(path_ref,'r')
     ref = set()
     for line in file:
         s = line.split(",")
         ref.add(s[0])
-    to_compare = {filename : 0 for filename in os.listdir(path)}
-    for filename in os.listdir(path):
-        file = open(path+filename)
+    to_compare = {filename : 0 for filename in os.listdir(path_res)}
+    for filename in os.listdir(path_res):
+        file = open(path_res+filename)
         tmp = set()
         for line in file:
             s = line.split(",")
@@ -151,17 +156,5 @@ def compare_results(path):
 
 if __name__ == '__main__':
     #test_SVB()
-    #compare_results("./results/")
-    G = nx.DiGraph()
-    G.add_edge('A', 'B')
-    G.add_edge('A', 'C')
-    G.add_edge('B', 'C')
-    G.add_edge('B', 'D')
-    G.add_edge('D', 'E')
-    G.add_edge('D', 'F')
-    G.add_edge('D', 'G')
-    G.add_edge('E', 'F')
-    G.add_edge('F', 'G')
-    G.add_edge('B', 'F')
-    stats_SVB(G,5)
-    #dist = ShapleyBetweennes2(G)
+    #compare_results("./results2/")
+
