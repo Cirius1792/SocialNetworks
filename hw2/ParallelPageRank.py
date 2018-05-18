@@ -43,15 +43,13 @@ def parallelPageRank2(G, s=0.85, step=75, n_subsets=4, n_jobs=4, flag=False):
     """
     pq = PriorityQueue()
     start = time.time()
-    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph2(G, n_subsets)
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G, n_subsets)
     stop = time.time()-start
-    print("preparazione sottostrutture. t = \t"+"{0:.4f}".format(stop))
+    print("precomputazione = \t"+"{0:.4f}".format(stop))
     n = nx.number_of_nodes(G)
-    done = False
     curr_step = 0
     rank = {i: ((float(1)) / n) for i in G.nodes()}
-
-    tmp = []
+    start = time.time()
     with Parallel (n_jobs=n_jobs) as parallel:
         while  curr_step < step:
             curr_step += 1
@@ -62,13 +60,13 @@ def parallelPageRank2(G, s=0.85, step=75, n_subsets=4, n_jobs=4, flag=False):
             to_combine = [[res[i] for i in res_mapping[job]] for job in range(len(subsets))]
             n_ranks = parallel(delayed(_update)(subsets[i],to_combine[i], s, n) for i in range(len(subsets)))
             for d in n_ranks:
-                rank = {**rank, **d}
-
+                rank = {    ** rank, ** d}
     if flag:
         return rank
     for u in G.nodes():
         pq.add(u, -rank[u])
-
+    stop = time.time()-start
+    print("pagerank parallelo:\t"+str(stop))
     return pq
 
 
@@ -82,15 +80,14 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_subsets=4,n_jobs=4 , fl
         """
     pq = PriorityQueue()
     start = time.time()
-    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph2(G, n_subsets)
+    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G, n_subsets)
     stop = time.time()-start
-    print("preparazione sottostrutture. t = \t"+"{0:.4f}".format(stop))
+    print("preparazione sottostrutture. t = \t"+"{0:.4f}".format(stop)+" s")
     n = nx.number_of_nodes(G)
     done = False
     curr_step = 0
     rank = {i: ((float(1)) / n) for i in G.nodes()}
-
-    tmp = []
+    start = time.time()
     with Parallel (n_jobs=n_jobs) as parallel:
         while not done and curr_step < step:
             curr_step += 1
@@ -110,56 +107,10 @@ def parallelPageRank(G, s=0.85, step=75, confidence=0, n_subsets=4,n_jobs=4 , fl
         return rank
     for u in G.nodes():
         pq.add(u, -rank[u])
-
+    stop = time.time()-start
+    print("page rank parallelo: "+"{0:.4f}".format(stop)+" s")
     return pq
 
-
-def _split_graph2(G,n_sets):
-    n_subgraphs = n_sets ** 2
-    #OLD
-    #subsets = [[] for i in range(n_sets)]
-    subsets = []
-    subgraphs = [nx.DiGraph() for i in range(n_subgraphs)]
-    i = 0
-    # costruisco i set
-    node_list = list(G.nodes())
-    step = int(G.number_of_nodes()/n_sets)
-    for i in range(n_sets):
-        subsets.append(node_list[i*step:(i+1)*step])
-    #Infilo eventuali nodi spari nell'ultimo set
-    subsets[-1]= node_list[n_sets*step:]
-    # OLD
-    # for u in G.nodes():
-    #     subsets[i % n_sets].append(u)
-    #     i += 1
-
-    # costruisco i sottografi
-    jobs_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
-    res_mapping = {i: set() for i in range(math.ceil(math.sqrt(n_subgraphs)))}
-    ng = 0
-    start = time.time()
-    #OLD
-    for i in range(n_sets):
-        for j in range(n_sets):
-            for node in subsets[i]:
-                for v in G[node]:
-                    if v in subsets[j]:
-                        subgraphs[ng].add_edge(node, v)
-            jobs_mapping[i].add(ng)
-            res_mapping[j].add(ng)
-            ng += 1
-
-
-    stop = time.time() - start
-    # print("tempo di tutto sto ciclo enorme: "+"{0:.4f}".format(stop))
-    mapping = dict()
-    for s in jobs_mapping:
-        for job in jobs_mapping[s]:
-            mapping[job] = s
-    jobs_mapping = mapping
-    degree = [{n: G.degree(n) for n in subgraphs[i].nodes()} for i in range(n_subgraphs)]
-
-    return subsets, subgraphs, degree, jobs_mapping, res_mapping
 
 
 def _split_graph(G, n_sets):
@@ -248,59 +199,29 @@ def test_split(G, n_sets):
     start = time.time()
     subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph(G,n_sets=n_sets)
     stop = time.time() - start
-    print("split 1: "+str(stop))
-    start = time.time()
-    subsets, subgraphs, degree, jobs_mapping, res_mapping = _split_graph2(G, n_sets=n_sets)
-    stop = time.time() - start
-    print("split 2: " + str(stop))
+    print("split: "+str(stop))
+
+
+
 def test():
-    G = nx.DiGraph()
 
-    G.add_edge('A', 'B')
-    G.add_edge('A', 'C')
-    G.add_edge('A', 'D')
-    G.add_edge('B', 'A')
-    G.add_edge('B', 'D')
-    G.add_edge('C', 'A')
-    G.add_edge('D', 'B')
-    G.add_edge('D', 'C')
-    graph = ["../graphs/Brightkite/Brightkite_edges.txt",
-             "../graphs/ego-gplus/out.ego-gplus",
-             "./g_test.txt"]
-    G=load_graph(graph[2],True)
-    print("\tnodes: \t"+str(G.number_of_nodes()))
+    graph = {
+            "../graphs/as-caida2007/as-caida20071105.txt": False,
+            "../graphs/p2p-Gnutella25/p2p-Gnutella25.txt":True,
+             "../graphs/ego-gplus/out.ego-gplus":True,
+             "../graphs/Ca-AstroPh.txt":False
+             }
+    for g in graph:
+        print(g)
+        G=load_graph(g,graph[g])
+        print("\tnodes: \t"+str(G.number_of_nodes()))
+        start = time.time()
+        pq_s = pageRank(G)
+        stop = time.time()-start
+        print("pagerank:\t"+"{0:.4f}".format(stop)+" s")
+        pq = parallelPageRank2(G, n_subsets=8)
+        print("")
 
 
-    el_to_print = 4
-    print("\nNormale")
-    start = time.time()
-    pq_s = pageRank(G, flag=False)
-    stop = time.time() - start
-    print("\tt: \t" + "{0:.4f}".format(stop))
-    for i in range(el_to_print):
-        el, rank = pq_s.pop(with_priority=True)
-        print(str(el) + "\t=\t " + str(rank))
-    print("\nParallelo")
-    start = time.time()
-    pq = parallelPageRank(G, n_subsets=4
-                          , flag=False)
-    stop = time.time() - start
-    print("\tt: \t" + "{0:.4f}".format(stop))
-    for i in range(el_to_print):
-        el, rank = pq.pop(with_priority=True)
-        print(str(el) + "\t=\t " + str(rank))
-
-# con parallelizzazione dell'aggiornamento di rank
-# 	t: 	33.7364
-# 8775	=	 -1.1781554686962033e-05
-# 15597	=	 -7.702734696904458e-06
-# 529	=	 -7.697435246317929e-06
-# 530	=	 -7.697435246317929e-06
-# parallelizzando solo update
-# 	t: 	33.9227
-# 8775	=	 -1.1781554686962033e-05
-# 15597	=	 -7.702734696904458e-06
-# 529	=	 -7.697435246317929e-06
-# 530	=	 -7.697435246317929e-06
 if __name__ == '__main__':
     test()

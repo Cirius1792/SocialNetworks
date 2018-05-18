@@ -5,6 +5,7 @@ from util.priorityq import PriorityQueue
 import random
 from scipy.sparse import linalg, coo_matrix
 import numpy as np
+from util.utility import load_graph
 
 
 # CLUSTERING [Leskovec et al., 10.2, 10.4]
@@ -121,14 +122,16 @@ def betweenness(G):
 
 # remove edges of largest betweenness
 def bwt_cluster(G):
-    b = betweenness(G)
-    graph = G.copy()
-    pq = PriorityQueue()
-    for x in b.keys():
-        pq.add(x, -b[x])
+    b1 = betweenness(G)
+
 
     done = False
     while not done:
+        b = nx.edge_betweenness_centrality(G)
+        graph = G.copy()
+        pq = PriorityQueue()
+        for x in b.keys():
+            pq.add(x, -b[x])
         edge = tuple(sorted(pq.pop()))
         graph.remove_edges_from([edge])
         print(list(nx.connected_components(graph)))
@@ -175,7 +178,15 @@ if __name__ == '__main__':
     G.add_edge('D', 'G')
     G.add_edge('E', 'F')
     G.add_edge('F', 'G')
+    graph = [
+        "../graphs/as-caida2007/as-caida20071105.txt",
+        "../graphs/p2p-Gnutella25/p2p-Gnutella25.txt",
+        "../graphs/ego-gplus/out.ego-gplus",
+        "../graphs/Ca-AstroPh.txt"
+    ]
+    G = load_graph(graph[3], False)
+
     # hierarchical(G)
-    # two_means(G)
-    bwt_cluster(G)
+    two_means(G)
+    #bwt_cluster(G)
     #spectral(G)
