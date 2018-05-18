@@ -15,29 +15,32 @@ graph_paths = {#"../graphs/Brightkite/Brightkite_edges.txt": False,
                 "../graphs/as-caida2007/as-caida20071105.txt":False,
                 "../graphs/CA-AstroPh.txt": False,
                 "../graphs/ego-gplus/out.ego-gplus": True}
-
-functions = {"Degree Centrality": degree,
-             "Closeness Centrality": closeness,
-             "Betweennes Centrality": nx.betweenness_centrality,
-             "Pagerank": pageRank,
-             "Hits": hits,
-             "Shapley Degree": shapley_degree,
-             "Shapley Threshold": shapley_threshold,
-             "Shapley Closeness": shapley_closeness,
-             "Myerson": myerson,
-             "Shapley Betweennes": ShapleyBetweennes
-             }
-
-# functions = {
+#
+# functions = {"Degree Centrality": degree,
+#              "Closeness Centrality": closeness,
+#              #"Betweennes Centrality": nx.betweenness_centrality,
+#              "Pagerank": pageRank,
+#              "Hits": hits,
+#              "Shapley Degree": shapley_degree,
+#              "Shapley Threshold": shapley_threshold,
+#              #"Shapley Closeness": shapley_closeness,
 #              "Myerson": myerson,
 #              #"Shapley Betweennes": ShapleyBetweennes
 #              }
+
+functions = {
+#              "Myerson": myerson,
+#              #"Shapley Betweennes": ShapleyBetweennes
+             "Shapley Closeness": shapley_closeness
+
+              }
 
 
 def get_stats():
     cnt = 0
     for g in graph_paths:
         fout = open("g"+str(cnt)+"_stats_top50.txt", 'w')
+        cnt += 1
         G = load_graph(g, graph_paths[g])
         print("Graph:\t" + g)
         fout.write("Graph:\t")
