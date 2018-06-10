@@ -137,18 +137,18 @@ G.add_edge('F','G')
 seed={'B'}
 #UNCOMMENT FOR TEST
 #INDEPENDENT CASCADE
-print(list(nx.get_node_attributes(cascade(G,seed,2/3),'active').keys()))
-
-#LINEAR THRESHOLD
-print(list(nx.get_node_attributes(threshold(G,seed),'active').keys()))
+# print(list(nx.get_node_attributes(cascade(G,seed,2/3),'active').keys()))
+#
+# #LINEAR THRESHOLD
+# print(list(nx.get_node_attributes(threshold(G,seed),'active').keys()))
 
 #MAJORITY
-active = nx.get_node_attributes(majority(G,seed,{}),'active')
-print([i for i in active.keys() if active[i]])
+# active = nx.get_node_attributes(majority(G,seed,{}),'active')
+# print([i for i in active.keys() if active[i]])
 
 #BEST RESPONSE
-# active = nx.get_node_attributes(best_resp(G,seed,{}),'active')
-# print([i for i in active.keys() if active[i]])
+active = nx.get_node_attributes(best_resp(G,seed,{}),'active')
+print([i for i in active.keys() if active[i]])
 
 #VOTER
 #active = nx.get_node_attributes(voter(G,seed,10),'active')

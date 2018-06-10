@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from util.priorityq import PriorityQueue
 import networkx as nx
 

@@ -39,7 +39,6 @@ def degree_distribution_plot(g, title="degree distribution", save=False):
     plt.pause(0.5)
 
 
-
 def avg_degree(G):
     degs = [G.degree[n] for n in G.nodes()]
     return numpy.mean(degs)
@@ -156,5 +155,5 @@ def test1():
 
 
 if __name__ == '__main__':
-    #par_eval_stats("./proof_networks/")
-    proof()
+    par_eval_stats("./proof_networks/")
+    #proof()

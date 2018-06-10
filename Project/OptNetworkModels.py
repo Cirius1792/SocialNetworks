@@ -68,3 +68,7 @@ def WS2DG_opt(n, r, k, file=None):
                 file.write(str(i)+" "+str(s)+"\n")
 
     return True
+
+
+if __name__ == '__main__':
+    print("Hello World!")

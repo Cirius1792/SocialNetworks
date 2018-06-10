@@ -26,5 +26,13 @@ def top(G,measure,k):
     out=[]
     for i in range(k):
         res,pr = pq.pop(with_priority=True)
+        out.append(res)
+    return out
+
+def top_tostring(G,measure,k):
+    pq=measure(G)
+    out=[]
+    for i in range(k):
+        res,pr = pq.pop(with_priority=True)
         out.append("("+str(res)+","+"{0:.3f}".format(pr)+")")
     return out
