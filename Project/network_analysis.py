@@ -39,23 +39,6 @@ def degree_distribution_plot(g, title="degree distribution", save=False):
     plt.pause(0.5)
 
 
-def power_law_plot(g):
-    nodes = g.number_of_nodes()
-    nodes_degree = {n: g.degree[n] for n in g.nodes()}
-    sorted_degrees = sorted(nodes_degree.values())
-    #Creo una mappa in cui, per ogni degree, so quanti nod del grafo hanno quel degree
-    degrees = Counter(sorted_degrees)
-    fk = [ k/nodes for k in sorted(set(sorted_degrees))] #Frazione di nodi con degree k
-    x = [ math.log(f_k) for f_k in fk]
-    y = [ math.log(degrees[n]) for n in sorted(set(sorted_degrees))]
-    fig, ax = plt.subplots()
-    ax.plot(x, y)
-    ax.set(xlabel='number of links', ylabel='degree',
-           title='power law')
-    ax.grid()
-    plt.show()
-    plt.pause(0.5)
-
 
 def avg_degree(G):
     degs = [G.degree[n] for n in G.nodes()]
