@@ -123,33 +123,34 @@ def voter(graph, seed, num_steps):
         graph.node[u]['active'] = graph.node[v]['active']
         
     return graph
+if __name__ == '__main__':
 
-G=nx.Graph()
-G.add_edge('A','B')
-G.add_edge('A','C')
-G.add_edge('B','C')
-G.add_edge('B','D')
-G.add_edge('D','E')
-G.add_edge('D','F')
-G.add_edge('D','G')
-G.add_edge('E','F')
-G.add_edge('F','G')
-seed={'B'}
-#UNCOMMENT FOR TEST
-#INDEPENDENT CASCADE
-# print(list(nx.get_node_attributes(cascade(G,seed,2/3),'active').keys()))
-#
-# #LINEAR THRESHOLD
-# print(list(nx.get_node_attributes(threshold(G,seed),'active').keys()))
+    G=nx.Graph()
+    G.add_edge('A','B')
+    G.add_edge('A','C')
+    G.add_edge('B','C')
+    G.add_edge('B','D')
+    G.add_edge('D','E')
+    G.add_edge('D','F')
+    G.add_edge('D','G')
+    G.add_edge('E','F')
+    G.add_edge('F','G')
+    seed={'B'}
+    #UNCOMMENT FOR TEST
+    #INDEPENDENT CASCADE
+    # print(list(nx.get_node_attributes(cascade(G,seed,2/3),'active').keys()))
+    #
+    # #LINEAR THRESHOLD
+    # print(list(nx.get_node_attributes(threshold(G,seed),'active').keys()))
 
-#MAJORITY
-# active = nx.get_node_attributes(majority(G,seed,{}),'active')
-# print([i for i in active.keys() if active[i]])
+    #MAJORITY
+    # active = nx.get_node_attributes(majority(G,seed,{}),'active')
+    # print([i for i in active.keys() if active[i]])
 
-#BEST RESPONSE
-active = nx.get_node_attributes(best_resp(G,seed,{}),'active')
-print([i for i in active.keys() if active[i]])
+    #BEST RESPONSE
+    active = nx.get_node_attributes(best_resp(G,seed,{}),'active')
+    print([i for i in active.keys() if active[i]])
 
-#VOTER
-#active = nx.get_node_attributes(voter(G,seed,10),'active')
-#print([i for i in active.keys() if active[i]])
+    #VOTER
+    #active = nx.get_node_attributes(voter(G,seed,10),'active')
+    #print([i for i in active.keys() if active[i]])

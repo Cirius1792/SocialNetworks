@@ -10,9 +10,9 @@ import numpy as np
 from collections import Counter
 from Esercitazioni.esercitazione_6.NetworksModel1 import *
 from Esercitazioni.esercitazione_6.NetworksModel2 import *
-from os import listdir
 from os.path import isfile, join
 from joblib import Parallel, delayed
+from os import listdir
 from Project.OptNetworkModels import *
 
 #CONSTANTS
@@ -38,26 +38,41 @@ def degree_distribution_plot(g, title="degree distribution", save=False):
     plt.show()
     plt.pause(0.5)
 
+def degree_bar_diagram(g, title="degree distribution", save=False):
+    nodes = g.number_of_nodes()
+    fk = {n: g.degree[n] for n in g.nodes()}
+    max_deg = max(fk.values())
+    bin = {i:0 for i in range(101)}
+    step = max_deg/100.0
+
+    for n in g.nodes():
+        bin[int((100.0*g.degree[n])/max_deg)] += 1
+    print( bin)
+    fig, ax = plt.subplots()
+    dist = []
+    for key in sorted(bin.keys()):
+        dist.append(bin[key])
+    print(dist)
+    plt.bar(np.arange(101),dist)
+    plt.xticks(np.arange(100,step=10),[int(max_deg*x/50) for x in np.arange(100,step=10)])
+    plt.show()
 
 def avg_degree(G):
     degs = [G.degree[n] for n in G.nodes()]
     return numpy.mean(degs)
 
 def build_test_graph():
-    base_path = "./generated_networks/"
+    base_path = "./WSGrid25000_r5_k6/"
 
-    n = 25000
+    n = 2500
     p = 0.5
 
-    r = 88
-    k = 4
+    r = 5
+    k = 6
     print("Generating WS Grid")
-    G = WSGridG(n,r,k)
-    nx.write_edgelist(G,base_path+"WSGrid_2500_20_4.txt")
+    f = open(base_path+"WSGrid_"+str(n)+"_r"+str(r)+"_k"+str(k)+".txt",'w')
+    G = WSGridG_opt(n,r,k, file=f)
 
-    print("Generating WS C")
-    G = WS2DG(n,r,k)
-    nx.write_edgelist(G,base_path+"WS2DG_2500_20_4.txt")
 
 def statistics(base_path):
     files = [f for f in listdir(base_path) if isfile(join(base_path, f))]
@@ -108,7 +123,7 @@ def proof():
     par_eval_stats("./proof_networks2/")
 
 
-def _sub_proof(n,p,i):
+def _sub_proof(n, r, k):
     # RANDOM GRAPH
     # base_path = "./proof_networks/"
     # file = open(base_path + "random_test_"+str(i)+".txt",'w')
@@ -119,11 +134,11 @@ def _sub_proof(n,p,i):
 
 
     base_path = "./proof_networks2/"
-    file = open(base_path + "WS2DG_test_"+"r"+str(p)+"_k"+str(i)+".txt",'w')
+    file = open(base_path + "WS2DG_test_" +"r" + str(r) + "_k" + str(k) + ".txt", 'w')
     file.write("#n = " + str(n) + "\n")
-    file.write("#k = " + str(p) + "\n")
-    file.write("#i = " + str(i) + "\n")
-    G = WS2DG_opt(n,p,i,file=file)
+    file.write("#r = " + str(r) + "\n")
+    file.write("#k = " + str(k) + "\n")
+    G = WS2DG_opt(n, r, k, file=file)
     file.close()
 
 
@@ -153,7 +168,13 @@ def test1():
     print("Diametro: " + str(nx.diameter(G)))
 
 
+def testnn():
+    path = "./net_3"
+    g = nx.read_edgelist(path,create_using=nx.DiGraph())
+    degree_bar_diagram(g)
 
 if __name__ == '__main__':
-    par_eval_stats("./proof_networks/")
+    #par_eval_stats("./WS2DGrid10000_r5_k6/")
     #proof()
+    #build_test_graph()
+    testnn()

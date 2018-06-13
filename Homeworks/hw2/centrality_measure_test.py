@@ -10,10 +10,11 @@ from util.utility import load_graph
 metrics = {"degree": 0, "closeness": 1, "pagerank": 2, "hits": 3, "sdegree": 4, "sthreshold": 5}
 #metrics = {"degree": 0, "closeness": 1, "pagerank": 2, "hits": 3, "sdegree": 4, "sthreshold": 5, "sbetweennes": 6}
 
-graph_paths = { "../graphs/as-caida2007/as-caida20071105.txt":False,
-                "../graphs/CA-AstroPh.txt": False,
-                "../graphs/ego-gplus/out.ego-gplus": True}
+# graph_paths = { "../graphs/as-caida2007/as-caida20071105.txt":False,
+#                 "../graphs/CA-AstroPh.txt": False,
+#                 "../graphs/ego-gplus/out.ego-gplus": True}
 
+graph_paths = {"C:/Users/Ciro Lucio/PycharmProjects/SocialNetworks/Project/generated_networks/WS2DGrid_0_1000_r5_k6.txt":False}
 functions = {
             "Degree Centrality": degree,
              "Closeness Centrality": closeness,
@@ -39,7 +40,7 @@ def get_stats():
     for g in graph_paths:
         fout = open("g"+str(cnt)+"_stats_top50.txt", 'w')
         cnt += 1
-        G = load_graph(g, graph_paths[g])
+        G = nx.read_edgelist(g, create_using=nx.Graph())
         print("Graph:\t" + g)
         fout.write("Graph:\t")
         fout.write(g)
@@ -131,14 +132,15 @@ def print_cm(cm):
 
 def eval_stats():
     res = ["as-caida20071105.txt", "AstroPh.txt", "gplus.txt"]
+    res = ["g0_stats_top50.txt"]
     for r in res:
         print(r)
-        cm = compare_stats("./results/" + r)
+        cm = compare_stats("./" + r)
         print_cm(cm)
 
 
 if __name__ == '__main__':
-    get_stats()
+    #get_stats()
     #I file devono essere prima preparati per l'analisi
     eval_stats()
 
