@@ -166,12 +166,14 @@ def bsdm(graph, seed_f1, seed_f2, monitor):
     ACT_FAKE1_NEIGH = 'act_fake1_neigh'
     ACT_FAKE2_NEIGH = 'act_fake2_neigh'
     stable = False # parametro usato per fermare la dinamica
-
+    #fake1Tofake2 = -(len(seed_f1)+ len(seed_f2))
+    f1_over_f2 = 0
+    n_seeds = len(seed_f2) + len(seed_f2)
     thresholds = nx.get_node_attributes(graph, THRESHOLD1)
     if len(thresholds) == 0:
         for i in graph.nodes():
-            graph.node[i][THRESHOLD1] = random.random()*0.75 * len(graph[i])
-            graph.node[i][THRESHOLD2] = random.random()*0.75 * len(graph[i])
+            graph.node[i][THRESHOLD1] = random.random()*0.5 * len(graph[i])
+            graph.node[i][THRESHOLD2] = random.random()*0.5 * len(graph[i])
             # print("\nNodo:\t"+str(i))
             # print("\t t1 = "+str(graph.node[i][THRESHOLD1]))
             # print("\t t2 = "+str(graph.node[i][THRESHOLD2]))
@@ -183,7 +185,9 @@ def bsdm(graph, seed_f1, seed_f2, monitor):
                 graph.node[i][TYPE] = 2
     fake1 = seed_f1
     fake2 = seed_f2
+    iteration = 0
     while not stable:
+        iteration += 1
         if len(fake1) > 0 or len(fake2) > 0:
             for i in fake1:
                 if ACT_FAKE not in graph.node[i] or graph.node[i][ACT_FAKE] == 2:
@@ -224,6 +228,9 @@ def bsdm(graph, seed_f1, seed_f2, monitor):
             for i in graph.nodes():
                 if TYPE not in graph.node[i]:
                     if ACT_FAKE1_NEIGH in graph.node[i] and graph.node[i][ACT_FAKE1_NEIGH] > graph.node[i][THRESHOLD1] and (ACT_FAKE not in graph.node[i] or (ACT_FAKE in graph.node[i] and graph.node[i][ACT_FAKE] == 2)):
+                        if (ACT_FAKE1_NEIGH in graph.node[i] and ACT_FAKE2_NEIGH in graph.node[i]):
+                            if graph.node[i][ACT_FAKE1_NEIGH] > graph.node[i][THRESHOLD1] and graph.node[i][ACT_FAKE2_NEIGH] > graph.node[i][THRESHOLD2]:
+                                f1_over_f2 += 1
                         fake1 = {i}
                         break
                     if ACT_FAKE2_NEIGH in graph.node[i] and graph.node[i][ACT_FAKE2_NEIGH] > graph.node[i][THRESHOLD2] and (ACT_FAKE1_NEIGH not in graph.node[i] or (ACT_FAKE1_NEIGH in graph.node[i] and graph.node[i][ACT_FAKE1_NEIGH] < graph.node[i][THRESHOLD1])) and (
@@ -232,7 +239,8 @@ def bsdm(graph, seed_f1, seed_f2, monitor):
                         break
             if len(fake1) == 0 and len(fake2) == 0:
                 stable = True
-
+    f1_over_f2 = f1_over_f2/(iteration - n_seeds)
+    print("f1 over f2: \t"+"{0:.4f}".format(f1_over_f2))
     return graph
 
 

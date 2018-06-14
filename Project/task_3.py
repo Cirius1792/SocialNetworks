@@ -41,7 +41,51 @@ def overlapping_neighborouds(graph, n1, n2, normalized = True):
     cnt = 0
     for v in graph[b]:
         cnt += 1 if v in graph[a] else 0
-    return cnt/len(graph[a]) if normalized else cnt
+    if cnt == 0:
+        return cnt
+    elif cnt != 0 and normalized:
+        return cnt/len(graph[a])
+    return cnt
+
+def find_weak_ties(graph):
+    weak_ties = set()
+    for edge in graph.edges():
+        if overlapping_neighborouds(graph, edge[0], edge[1]) == 0:
+            weak_ties.add(edge)
+    return weak_ties
+
+def choose_seed_fake2_v3(g, seed_fake1=set(), monitor=set()):
+    n_nodes = round(g.number_of_nodes() / 10)
+    pq = PriorityQueue()
+    wt = find_weak_ties(g)
+    blocked = seed_fake1 | monitor
+    not_connected_to_f1 = set()
+    to_check = list(wt)
+    for edge in wt:
+        #ns1 = to_check[:int(len(wt)/2)]
+        #ns2 = to_check[int(len(wt)/2):]
+        connected = False
+        for v in seed_fake1:
+            if nx.has_path(g,edge[0],v):
+                connected = True
+                break
+        if not connected:
+            not_connected_to_f1.add(edge[0])
+        connected = False
+        for v in seed_fake1:
+            if nx.has_path(g, edge[1], v):
+                connected = True
+                break
+        if not connected:
+            not_connected_to_f1.add(edge[1])
+
+    print(str(len(not_connected_to_f1)))
+
+def _check(g, source, dests):
+    for n in dests:
+        if nx.has_path(g, source, n):
+            return None
+    return source
 
 def choose_seed_fake2(g, seed_fake1=set(), monitor=set()):
     graph = nx.subgraph(g, set(g.nodes()) - (seed_fake1 | monitor))
@@ -61,7 +105,7 @@ def choose_seed_fake2(g, seed_fake1=set(), monitor=set()):
         overlap = []
         for v in seed_fake1:
             overlap.append(overlapping_neighborouds(g, n, v))
-        pq.add(n,mean(overlap)+stdev(overlap))
+        pq.add(n,mean(overlap)+stdev(overlap)) if len(overlap) > 0 else 0
 
     seeds = set()
     ######SEMPLICE
@@ -144,9 +188,9 @@ def plot_res(x):
     plt.show()
 
 def par_test_bsdm():
-    #path = "./generated_networks/WS2DGrid_0_1000_r5_k6.txt"
-    path = "./net3/net_3"
-    n_test = 2
+    path = "./generated_networks/WS2DGrid_0_1000_r5_k6.txt"
+    #path = "./net3/net_3"
+    n_test = 1
     diff_fake1 = []
     diff_fake2 = []
     diff_noop = []
@@ -173,8 +217,8 @@ def par_test(path, n_it = 10):
     diff_noop = []
     seed_f1 = random_seed1(g)
     monitor = random_monitor(g, seed_f1)
-    seed_f2 = choose_seed_fake2(g, seed_f1, monitor)
-    #seed_f2 = random_seed2(g, seed_f1, monitor)
+    #seed_f2 = choose_seed_fake2(g, seed_f1, monitor)
+    seed_f2 = random_seed2(g, seed_f1, monitor)
     for i in range(n_it):
         out = get_opinion_stats(bsdm(g, seed_f1, seed_f2, monitor), output=False)
         g = nx.read_edgelist(path, create_using=nx.Graph())
@@ -216,11 +260,9 @@ def test_bsdm():
 def test_best_response():
     path = "./generated_networks/WS2DGrid_0_1000_r5_k6.txt"
     g = nx.read_edgelist(path, create_using=nx.Graph())
-    #seed_f1 = {random.choice(list(g.nodes())) for i in range(int(g.number_of_nodes()/10))}
-    #seed_f2 = {random.choice(list(g.nodes())) for i in range(int(g.number_of_nodes()/10))}
-    #seed_f1 = choose_seed_fake2(g)
-    #monitor = {random.choice(list(g.nodes())) for i in range(int(g.number_of_nodes()/4))}
 
+    seed_f1 = choose_seed_fake2(g)
+    print("n seeds:"+str(len(seed_f1)))
     n_it = 100
     res =[]
     start = time.time()
@@ -233,36 +275,17 @@ def test_best_response():
     stop = time.time()-start
     print("\ntime: "+"{0:.4f}".format(stop))
     plot_res(res)
-    print("mean: "+str(mean(res)))
-    print("dev: "+str(stdev(res)/100))
+    print("mean: "+str(mean(res)), end="")
+    print("\tdev: "+str(stdev(res)/100))
 
-
-
-
-def test0():
-    path = "./generated_networks/config_powerlaw_2500_3.txt"
+def test_weak_ties():
+    path = "./WS2DGrid10000_r5_k6/WS2DGrid_0_10000_r5_k6.txt"
     g = nx.read_edgelist(path, create_using=nx.Graph())
-    seed = choose_seed_fake2(g)
-    res = []
-    res2 = []
-    n_it = 100
-    start = time.time()
-    for i in range(n_it):
-        print("\r" + "{0:.2f}".format(i / n_it * 100), end="")
-        out = get_opinion_stats(bsdm_recursive(g, seed, {}, seed_f1=seed, seed_f2={}, monitor={}), output=True)
-        g = nx.read_edgelist(path, create_using=nx.Graph())
-        out2 = get_opinion_stats(bsdm(g, seed, {}, {}), output=True)
-        # print(out)
-        res.append(out * 100)
-        res2.append(out2 * 100)
-        g = nx.read_edgelist(path, create_using=nx.Graph())
-    stop = time.time() - start
-    # print("time: "+"{0:.4f}".format(stop))
-    # print("mean: "+str(mean(res)))
-    # print("dev: "+str(stdev(res)/100))
-    # print("mean: "+str(mean(res2)))
-    # print("dev: "+str(stdev(res2)/100))
+    #choose_seed_fake2_v3(g, seed_fake1=random_seed1(g))
+    wt = find_weak_ties(g)
+    print("num weak ties: "+str(len(wt)))
+    print("weak ties: "+"{0:.2f}".format(len(wt)/g.number_of_edges()*100)+"%")
 
-    plot_res(res)
 if __name__ == '__main__':
-   par_test_bsdm()
+    #par_test_bsdm()
+    test_weak_ties()

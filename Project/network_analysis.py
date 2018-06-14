@@ -14,6 +14,7 @@ from os.path import isfile, join
 from joblib import Parallel, delayed
 from os import listdir
 from Project.OptNetworkModels import *
+from Project.task_3 import find_weak_ties
 
 #CONSTANTS
 stats_path = "statistics/"
@@ -89,7 +90,7 @@ def statistics(base_path):
 
 def par_eval_stats(base_path):
     files = [f for f in listdir(base_path) if isfile(join(base_path, f))]
-    with Parallel (n_jobs=4) as parallel:
+    with Parallel (n_jobs=2) as parallel:
         res = parallel(delayed(_eval_stat)(base_path,f) for f in files)
         for out in res:
             print(out)
@@ -101,9 +102,10 @@ def _eval_stat(base_path, f):
     out += ("\tNodes: " + str(G.number_of_nodes())+"\n")
     out +=("\tEdges: " + str(G.number_of_edges())+"\n")
     out +=("\tGrado medio: \t" + str(avg_degree(G))+"\n")
-    if avg_degree(G) < 100:
-        out +=("\tClustering: \t" + str(nx.average_clustering(G))+"\n")
-        degree_distribution_plot(G, title=f, save=True)
+    out +=("\tWeak Ties: \t"+"{0:.2f}".format(len(find_weak_ties(G))/G.number_of_edges())+"\n")
+    #if avg_degree(G) < 100:
+    out +=("\tClustering: \t" + str(nx.average_clustering(G))+"\n")
+    #degree_distribution_plot(G, title=f, save=False)
     out+= ("\n")
     #print(out)
     return out
@@ -174,7 +176,7 @@ def testnn():
     degree_bar_diagram(g)
 
 if __name__ == '__main__':
-    #par_eval_stats("./WS2DGrid10000_r5_k6/")
+    par_eval_stats("./WS2DGrid5000_r5_k6/")
     #proof()
     #build_test_graph()
-    testnn()
+    #testnn()

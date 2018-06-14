@@ -1,0 +1,23 @@
+#C:/Users/Ciro Lucio/PycharmProjects/SocialNetworks/Esercitazioni/esercitazione_6/NetworksModel1.py
+# GMT Wed Jun 13 17:49:54 2018
+# 
+12 8 18
+8
+10 18
+18 5 14
+17 15 9 2
+15 16
+6 4
+4
+11 7
+7
+5
+19 1 0 3 16
+1
+9
+0
+2
+14 13
+16 13
+13
+3

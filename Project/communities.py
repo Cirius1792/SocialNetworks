@@ -32,6 +32,7 @@ def save_com():
     with Parallel (n_jobs=4) as parallel:
         res = parallel(delayed(_eval_net)(f) for f in files)
     print("Done!")
+
 def test():
     path = "./generated_networks/WS2DGrid_0_5000_r5_k6.txt"
     #g = nx.read_edgelist(path, create_using=nx.Graph())
