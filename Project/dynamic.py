@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import math
 
+from Esercitazioni.esercitazione_6.NetworksModel2 import affiliationG
+
 THRESHOLD1 = 'threshold1'
 THRESHOLD2 = 'threshold2'
 TYPE = 'type'  # 0 = Monitor, 1 = seed_fake1, 2= seed_fake2
@@ -245,6 +247,16 @@ def test_ws2dgrid():
     d.get_diffusion_stats(True)
     d.show_opinions()
 
+def test_affiliation():
+    d = BSDM(name="test", out_path="./plot_steps/affiliation/")
+    g = affiliationG(15, 4, 0.5, 0.8, 3, 2)
+    d.bsdm_random(g, plot_steps=True, save_plots=True)
+    d.get_diffusion_stats(True)
+    d.show_opinions()
+
+
 if __name__ == '__main__':
-    test_ws2dgrid()
-    test_powerlaw()
+    #test_ws2dgrid()
+    #test_powerlaw()
+    #test_affiliation()
+    test_locale()
